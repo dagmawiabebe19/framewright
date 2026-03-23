@@ -136,9 +136,9 @@ export function DeliverablesTabs({
                 ? "No music cue sheets yet"
                 : "No other deliverables yet";
       return (
-        <div className="rounded-xl border border-dashed border-[#2a2a3e] bg-[#0a0a12] px-4 py-10 text-center">
+        <div className="rounded-xl border border-dashed border-[#2a2a2a] bg-[#080808] px-4 py-10 text-center">
           <EmptyIcon />
-          <p className="mt-3 text-sm text-[#9998b0]">{copy}</p>
+          <p className="mt-3 text-sm text-[#A09880]">{copy}</p>
         </div>
       );
     }
@@ -176,9 +176,9 @@ export function DeliverablesTabs({
   };
 
   return (
-    <div className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-5">
-      <h2 className="text-sm font-semibold text-[#f1f0f0]">Deliverables</h2>
-      <div className="mt-3 flex flex-wrap gap-1 border-b border-[#2a2a3e] pb-2">
+    <div className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-5">
+      <h2 className="text-sm font-semibold text-[#F5F0E8]">Deliverables</h2>
+      <div className="mt-3 flex flex-wrap gap-1 border-b border-[#2a2a2a] pb-2">
         {tabs.map((t) => (
           <button
             key={t.id}
@@ -186,8 +186,8 @@ export function DeliverablesTabs({
             onClick={() => setTab(t.id)}
             className={`rounded-full px-3 py-1 text-[11px] font-semibold ${
               tab === t.id
-                ? "bg-[#6c63ff] text-white"
-                : "text-[#9998b0] hover:text-[#f1f0f0]"
+                ? "bg-[#D4A853] text-white"
+                : "text-[#A09880] hover:text-[#F5F0E8]"
             }`}
           >
             {t.label}
@@ -202,7 +202,7 @@ export function DeliverablesTabs({
             <div className="mb-3">
               <Link
                 href={`${base}/tools/vfx-sheet?episode=${episodeId}`}
-                className="inline-block rounded-full border border-[#6c63ff]/40 px-3 py-1.5 text-[11px] font-semibold text-[#6c63ff] hover:bg-[#6c63ff]/10"
+                className="inline-block rounded-full border border-[#D4A853]/40 px-3 py-1.5 text-[11px] font-semibold text-[#D4A853] hover:bg-[#D4A853]/10"
               >
                 Generate new VFX sheet
               </Link>
@@ -215,7 +215,7 @@ export function DeliverablesTabs({
             <div className="mb-3">
               <span
                 title="Coming soon"
-                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a3e] px-3 py-1.5 text-[11px] text-[#5f5e70]"
+                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a2a] px-3 py-1.5 text-[11px] text-[#5a5040]"
               >
                 Generate sound turnover
               </span>
@@ -228,7 +228,7 @@ export function DeliverablesTabs({
             <div className="mb-3">
               <span
                 title="Coming soon"
-                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a3e] px-3 py-1.5 text-[11px] text-[#5f5e70]"
+                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a2a] px-3 py-1.5 text-[11px] text-[#5a5040]"
               >
                 Generate color turnover
               </span>
@@ -241,7 +241,7 @@ export function DeliverablesTabs({
             <div className="mb-3 flex flex-wrap gap-2">
               <span
                 title="Coming soon"
-                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a3e] px-3 py-1.5 text-[11px] text-[#5f5e70]"
+                className="inline-block cursor-not-allowed rounded-full border border-[#2a2a2a] px-3 py-1.5 text-[11px] text-[#5a5040]"
               >
                 Generate music cue sheet
               </span>
@@ -251,14 +251,14 @@ export function DeliverablesTabs({
         )}
         {tab === "other" && (
           <>
-            <div className="mb-3 flex flex-col gap-2 text-[11px] text-[#5f5e70]">
+            <div className="mb-3 flex flex-col gap-2 text-[11px] text-[#5a5040]">
               <span title="Coming soon">
                 ADR / pull / manifest —{" "}
-                <span className="text-[#9998b0]">coming soon</span>
+                <span className="text-[#A09880]">coming soon</span>
               </span>
               <span title="Coming soon">
                 Change list →{" "}
-                <span className="text-[#9998b0]">tool coming soon</span>
+                <span className="text-[#A09880]">tool coming soon</span>
               </span>
             </div>
             {renderList(byTab.other, "other")}

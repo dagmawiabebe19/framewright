@@ -17,7 +17,7 @@ export default function ShotTrackerHelpPage() {
       </p>
       <ol className="list-decimal space-y-4 pl-5">
         <li>
-          Open <strong className="text-[#f1f0f0]">VFX → Shot tracker</strong>{" "}
+          Open <strong className="text-[#F5F0E8]">VFX → Shot tracker</strong>{" "}
           from the sidebar.
         </li>
         <li>

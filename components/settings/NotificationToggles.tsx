@@ -44,8 +44,8 @@ function ToggleRow({
   return (
     <div className="flex items-start justify-between gap-4 py-3">
       <div>
-        <p className="text-sm font-medium text-[#f1f0f0]">{label}</p>
-        <p className="text-xs text-[#5f5e70]">{description}</p>
+        <p className="text-sm font-medium text-[#F5F0E8]">{label}</p>
+        <p className="text-xs text-[#5a5040]">{description}</p>
       </div>
       <button
         type="button"
@@ -54,7 +54,7 @@ function ToggleRow({
         aria-checked={on}
         onClick={() => onChange(!on)}
         className={`relative h-7 w-12 shrink-0 rounded-full transition ${
-          on ? "bg-[#6c63ff]" : "bg-[#2a2a3e]"
+          on ? "bg-[#D4A853]" : "bg-[#2a2a2a]"
         } disabled:opacity-40`}
       >
         <span
@@ -99,9 +99,9 @@ export function NotificationToggles({
   }
 
   return (
-    <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
-      <h2 className="text-lg font-semibold text-[#f1f0f0]">Notifications</h2>
-      <p className="mt-1 text-sm text-[#5f5e70]">
+    <section className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
+      <h2 className="text-lg font-semibold text-[#F5F0E8]">Notifications</h2>
+      <p className="mt-1 text-sm text-[#5a5040]">
         Email preferences for your account on this organization.
       </p>
       {error && (
@@ -109,7 +109,7 @@ export function NotificationToggles({
           {error}
         </p>
       )}
-      <div className="mt-4 divide-y divide-[#2a2a3e]">
+      <div className="mt-4 divide-y divide-[#2a2a2a]">
         <ToggleRow
           label="Daily digest"
           description="Morning summary of what needs attention."
@@ -143,7 +143,7 @@ export function NotificationToggles({
         type="button"
         disabled={saving}
         onClick={() => void save()}
-        className="mt-6 rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+        className="mt-6 rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
       >
         {saving ? "Saving…" : "Save notification preferences"}
       </button>

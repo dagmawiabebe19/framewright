@@ -4,6 +4,6 @@ export default function HelpLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-[#0a0a12] text-[#f1f0f0]">{children}</div>
+    <div className="min-h-screen bg-[#080808] text-[#F5F0E8]">{children}</div>
   );
 }

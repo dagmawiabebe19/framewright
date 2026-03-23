@@ -5,7 +5,7 @@ export default function AuthPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-[#0f0f1a] flex items-center justify-center text-sm text-[#5f5e70]">
+        <div className="min-h-screen bg-[#080808] flex items-center justify-center text-sm text-[#5a5040]">
           Loading…
         </div>
       }

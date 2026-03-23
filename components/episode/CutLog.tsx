@@ -16,7 +16,7 @@ function badgeClass(cutType: string): string {
     case "editors_cut":
       return "border-blue-500/40 bg-blue-950/30 text-blue-200";
     case "directors_cut":
-      return "border-[#6c63ff]/50 bg-[#1a1a2e] text-[#c4b5fd]";
+      return "border-[#D4A853]/50 bg-[#1a1a1a] text-[#c4b5fd]";
     case "producers_cut":
       return "border-amber-500/40 bg-amber-950/30 text-amber-200";
     case "network_cut":
@@ -24,7 +24,7 @@ function badgeClass(cutType: string): string {
     case "picture_lock":
       return "border-emerald-500/60 bg-emerald-950/20 text-emerald-200 font-semibold ring-2 ring-emerald-500/30";
     default:
-      return "border-[#2a2a3e] text-[#9998b0]";
+      return "border-[#2a2a2a] text-[#A09880]";
   }
 }
 
@@ -171,13 +171,13 @@ export function CutLog({
   };
 
   return (
-    <div className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-5">
+    <div className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-5">
       <div className="flex items-center justify-between gap-2">
-        <h2 className="text-sm font-semibold text-[#f1f0f0]">Cut log</h2>
+        <h2 className="text-sm font-semibold text-[#F5F0E8]">Cut log</h2>
         <button
           type="button"
           onClick={() => setModalOpen(true)}
-          className="rounded-full bg-[#6c63ff] px-3 py-1.5 text-[11px] font-semibold text-white"
+          className="rounded-full bg-[#D4A853] px-3 py-1.5 text-[11px] font-semibold text-white"
         >
           Log new cut
         </button>
@@ -185,15 +185,15 @@ export function CutLog({
 
       <div className="mt-4 space-y-3">
         {cutsProp.length === 0 && (
-          <div className="rounded-xl border border-dashed border-[#2a2a3e] bg-[#0a0a12] px-4 py-8 text-center">
-            <p className="text-sm text-[#9998b0]">No cuts logged yet</p>
-            <p className="mt-1 text-xs text-[#5f5e70]">
+          <div className="rounded-xl border border-dashed border-[#2a2a2a] bg-[#080808] px-4 py-8 text-center">
+            <p className="text-sm text-[#A09880]">No cuts logged yet</p>
+            <p className="mt-1 text-xs text-[#5a5040]">
               Log your first cut when the assembly is ready
             </p>
             <button
               type="button"
               onClick={() => setModalOpen(true)}
-              className="mt-4 rounded-full border border-[#6c63ff] px-4 py-2 text-xs font-semibold text-[#6c63ff]"
+              className="mt-4 rounded-full border border-[#D4A853] px-4 py-2 text-xs font-semibold text-[#D4A853]"
             >
               Log first cut
             </button>
@@ -209,7 +209,7 @@ export function CutLog({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="rounded-xl border border-[#2a2a3e] bg-[#0a0a12] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+              className="rounded-xl border border-[#2a2a2a] bg-[#080808] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
             >
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div className="flex flex-wrap items-center gap-2">
@@ -218,7 +218,7 @@ export function CutLog({
                   >
                     {cutTypeLabel(c.cut_type)}
                   </span>
-                  <span className="font-medium text-[#f1f0f0]">
+                  <span className="font-medium text-[#F5F0E8]">
                     {c.version_name}
                   </span>
                 </div>
@@ -226,22 +226,22 @@ export function CutLog({
                   <button
                     type="button"
                     onClick={() => void downloadRef(c.file_url)}
-                    className="text-[11px] font-semibold text-[#6c63ff] hover:underline"
+                    className="text-[11px] font-semibold text-[#D4A853] hover:underline"
                   >
                     Reference
                   </button>
                 )}
               </div>
-              <p className="mt-2 text-xs text-[#9998b0]">
-                <span className="font-mono text-[#f1f0f0]">
+              <p className="mt-2 text-xs text-[#A09880]">
+                <span className="font-mono text-[#F5F0E8]">
                   {c.duration_tc ?? "—"}
                 </span>
-                <span className="text-[#5f5e70]"> · </span>
+                <span className="text-[#5a5040]"> · </span>
                 {new Date(c.created_at).toLocaleDateString(undefined, {
                   month: "short",
                   day: "numeric",
                 })}
-                <span className="text-[#5f5e70]"> · </span>
+                <span className="text-[#5a5040]"> · </span>
                 {shortCreator(c.created_by, currentUserId)}
               </p>
               {c.notes && (
@@ -253,7 +253,7 @@ export function CutLog({
                 <button
                   type="button"
                   onClick={() => void toggleExpand(c.id)}
-                  className="text-[11px] font-semibold text-[#6c63ff] hover:underline"
+                  className="text-[11px] font-semibold text-[#D4A853] hover:underline"
                 >
                   {expanded[c.id] ? "Hide notes ↑" : "View notes ↓"}
                 </button>
@@ -262,14 +262,14 @@ export function CutLog({
                   onClick={() =>
                     setAddNoteOpen((p) => ({ ...p, [c.id]: !p[c.id] }))
                   }
-                  className="text-[11px] text-[#9998b0] hover:text-[#f1f0f0]"
+                  className="text-[11px] text-[#A09880] hover:text-[#F5F0E8]"
                 >
                   Add note to this cut
                 </button>
               </div>
 
               {addNoteOpen[c.id] && (
-                <div className="mt-3 space-y-2 rounded-lg border border-[#2a2a3e] bg-[#12121e] p-3">
+                <div className="mt-3 space-y-2 rounded-lg border border-[#2a2a2a] bg-[#0f0f0f] p-3">
                   <input
                     placeholder="TC HH:MM:SS:FF"
                     value={noteDraft[c.id]?.tc ?? ""}
@@ -283,7 +283,7 @@ export function CutLog({
                         },
                       }))
                     }
-                    className="w-full rounded border border-[#2a2a3e] bg-[#0a0a12] px-2 py-1 font-mono text-[11px] text-[#f1f0f0]"
+                    className="w-full rounded border border-[#2a2a2a] bg-[#080808] px-2 py-1 font-mono text-[11px] text-[#F5F0E8]"
                   />
                   <select
                     value={noteDraft[c.id]?.dep ?? "Editorial"}
@@ -297,7 +297,7 @@ export function CutLog({
                         },
                       }))
                     }
-                    className="w-full rounded border border-[#2a2a3e] bg-[#0a0a12] px-2 py-1 text-[11px] text-[#f1f0f0]"
+                    className="w-full rounded border border-[#2a2a2a] bg-[#080808] px-2 py-1 text-[11px] text-[#F5F0E8]"
                   >
                     {DEPS.map((d) => (
                       <option key={d} value={d}>
@@ -319,12 +319,12 @@ export function CutLog({
                         },
                       }))
                     }
-                    className="w-full rounded border border-[#2a2a3e] bg-[#0a0a12] px-2 py-1 text-[11px] text-[#f1f0f0]"
+                    className="w-full rounded border border-[#2a2a2a] bg-[#080808] px-2 py-1 text-[11px] text-[#F5F0E8]"
                   />
                   <button
                     type="button"
                     onClick={() => void submitNote(c.id)}
-                    className="rounded bg-[#6c63ff] px-3 py-1 text-[11px] font-semibold text-white"
+                    className="rounded bg-[#D4A853] px-3 py-1 text-[11px] font-semibold text-white"
                   >
                     Save note
                   </button>
@@ -332,9 +332,9 @@ export function CutLog({
               )}
 
               {expanded[c.id] && (
-                <div className="mt-3 space-y-2 border-t border-[#2a2a3e] pt-3">
+                <div className="mt-3 space-y-2 border-t border-[#2a2a2a] pt-3">
                   {loadingNotes[c.id] && (
-                    <p className="text-[11px] text-[#5f5e70]">Loading…</p>
+                    <p className="text-[11px] text-[#5a5040]">Loading…</p>
                   )}
                   {(notesByCut[c.id] ?? []).map((n) => (
                     <CutNoteItem

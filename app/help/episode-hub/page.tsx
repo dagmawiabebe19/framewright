@@ -17,20 +17,20 @@ export default function EpisodeHubHelpPage() {
       </p>
       <ol className="list-decimal space-y-4 pl-5">
         <li>
-          From <strong className="text-[#f1f0f0]">Episodes</strong>, click any
+          From <strong className="text-[#F5F0E8]">Episodes</strong>, click any
           episode card to open its hub.
         </li>
         <li>
-          Scan <strong className="text-[#f1f0f0]">Quick stats</strong> for
+          Scan <strong className="text-[#F5F0E8]">Quick stats</strong> for
           picture lock / delivery proximity and high-level counts.
         </li>
         <li>
-          Use <strong className="text-[#f1f0f0]">Deliverables</strong> tabs to
+          Use <strong className="text-[#F5F0E8]">Deliverables</strong> tabs to
           open packages, download VFX sheets, and jump to the generator with{" "}
           <code className="font-mono text-[#c4b5fd]">?episode=…</code> in the URL.
         </li>
         <li>
-          The <strong className="text-[#f1f0f0]">Phase timeline</strong> shows
+          The <strong className="text-[#F5F0E8]">Phase timeline</strong> shows
           which milestones are complete; VFX finals only turn green when every
           tracked shot is approved.
         </li>

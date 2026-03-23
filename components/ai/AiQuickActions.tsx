@@ -93,7 +93,7 @@ export function AiQuickActions({
           key={a.label}
           type="button"
           onClick={() => onPick(a.prompt)}
-          className="rounded-full border border-[#2a2a3e] bg-[#1a1a2e] px-3 py-1.5 text-left text-[12px] text-[#c4c4d4] transition hover:border-[#6c63ff] hover:text-[#6c63ff]"
+          className="rounded-full border border-[#2a2a2a] bg-[#1a1a1a] px-3 py-1.5 text-left text-[12px] text-[#c4c4d4] transition hover:border-[#D4A853] hover:text-[#D4A853]"
         >
           {a.label}
         </button>

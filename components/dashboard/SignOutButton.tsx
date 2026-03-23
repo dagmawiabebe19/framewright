@@ -19,7 +19,7 @@ export function SignOutButton() {
         router.push("/auth");
         router.refresh();
       }}
-      className="rounded-lg border border-[#2a2a3e] px-3 py-1.5 text-xs text-[#9998b0] transition hover:bg-[#12121e] disabled:opacity-50"
+      className="rounded-lg border border-[#2a2a2a] px-3 py-1.5 text-xs text-[#A09880] transition hover:bg-[#0f0f0f] disabled:opacity-50"
     >
       Sign out
     </button>

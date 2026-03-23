@@ -109,20 +109,20 @@ export function AuthPageClient() {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0f0f1a] px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#080808] px-4">
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className="w-full max-w-md rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-8 shadow-xl"
+        className="w-full max-w-md rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-8 shadow-xl"
       >
-        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-[#6c63ff]">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-[#D4A853]">
           FRAMEWRIGHT
         </p>
-        <h1 className="mt-3 text-center text-2xl font-semibold text-[#f1f0f0]">
+        <h1 className="mt-3 text-center text-2xl font-semibold text-[#F5F0E8]">
           Sign in to FRAMEWRIGHT
         </h1>
-        <p className="mt-2 text-center text-sm text-[#9998b0]">
+        <p className="mt-2 text-center text-sm text-[#A09880]">
           Post production, finally coordinated.
         </p>
 
@@ -140,14 +140,14 @@ export function AuthPageClient() {
         {sent ? (
           <div className="mt-8 space-y-4 text-center">
             <CheckIcon />
-            <h3 className="text-lg font-semibold text-[#f1f0f0]">
+            <h3 className="text-lg font-semibold text-[#F5F0E8]">
               Check your email
             </h3>
-            <p className="text-sm text-[#f1f0f0]">
+            <p className="text-sm text-[#F5F0E8]">
               We sent a magic link to{" "}
-              <span className="font-medium text-[#6c63ff]">{sentTo}</span>
+              <span className="font-medium text-[#D4A853]">{sentTo}</span>
             </p>
-            <p className="text-sm text-[#5f5e70]">
+            <p className="text-sm text-[#5a5040]">
               Click the link in your email to sign in. Check spam if you don&apos;t
               see it.
             </p>
@@ -158,7 +158,7 @@ export function AuthPageClient() {
                 setSentTo("");
                 setMessage(null);
               }}
-              className="mt-2 w-full rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] py-3 text-sm font-medium text-[#f1f0f0] transition hover:border-[#6c63ff]/50 hover:bg-[#12121e]"
+              className="mt-2 w-full rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] py-3 text-sm font-medium text-[#F5F0E8] transition hover:border-[#D4A853]/50 hover:bg-[#0f0f0f]"
             >
               Use a different email
             </button>
@@ -166,14 +166,14 @@ export function AuthPageClient() {
         ) : (
           <>
             <label className="mt-8 block space-y-2 text-sm">
-              <span className="text-[#9998b0]">Work email</span>
+              <span className="text-[#A09880]">Work email</span>
               <input
                 type="email"
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="you@production.com"
-                className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none transition focus:border-[#6c63ff] focus:ring-2 focus:ring-[#6c63ff]/30"
+                className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8] outline-none transition focus:border-[#D4A853] focus:ring-2 focus:ring-[#D4A853]/30"
               />
             </label>
 
@@ -181,22 +181,22 @@ export function AuthPageClient() {
               type="button"
               disabled={loading}
               onClick={signInMagicLink}
-              className="mt-4 w-full rounded-lg bg-[#6c63ff] py-3 text-sm font-semibold text-white transition hover:bg-[#7b73ff] disabled:opacity-50"
+              className="mt-4 w-full rounded-lg bg-[#D4A853] py-3 text-sm font-semibold text-white transition hover:bg-[#E0B86A] disabled:opacity-50"
             >
               Email me a magic link
             </button>
 
             <div className="my-6 flex items-center gap-3">
-              <div className="h-px flex-1 bg-[#2a2a3e]" />
-              <span className="text-xs text-[#5f5e70]">or</span>
-              <div className="h-px flex-1 bg-[#2a2a3e]" />
+              <div className="h-px flex-1 bg-[#2a2a2a]" />
+              <span className="text-xs text-[#5a5040]">or</span>
+              <div className="h-px flex-1 bg-[#2a2a2a]" />
             </div>
 
             <button
               type="button"
               disabled={loading}
               onClick={signInGoogle}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] py-3 text-sm font-medium text-[#f1f0f0] transition hover:border-[#6c63ff]/50 hover:bg-[#12121e] disabled:opacity-50"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] py-3 text-sm font-medium text-[#F5F0E8] transition hover:border-[#D4A853]/50 hover:bg-[#0f0f0f] disabled:opacity-50"
             >
               Continue with Google
             </button>
@@ -207,8 +207,8 @@ export function AuthPageClient() {
           </>
         )}
 
-        <p className="mt-8 text-center text-xs text-[#5f5e70]">
-          <Link href="/" className="text-[#6c63ff] hover:underline">
+        <p className="mt-8 text-center text-xs text-[#5a5040]">
+          <Link href="/" className="text-[#D4A853] hover:underline">
             Back to home
           </Link>
         </p>

@@ -143,10 +143,10 @@ export function EpisodeHubColumns({
               [key]: !p[key],
             }))
           }
-          className="mb-2 flex w-full items-center justify-between rounded-2xl border border-[#2a2a3e] bg-[#12121e] px-4 py-3 text-left text-sm font-semibold text-[#f1f0f0] md:hidden"
+          className="mb-2 flex w-full items-center justify-between rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] px-4 py-3 text-left text-sm font-semibold text-[#F5F0E8] md:hidden"
         >
           {title}
-          <span className="text-[#9998b0]">{mopen[key] ? "▾" : "▸"}</span>
+          <span className="text-[#A09880]">{mopen[key] ? "▾" : "▸"}</span>
         </button>
       )}
       <div className={mobile && !mopen[key] ? "hidden md:block" : ""}>

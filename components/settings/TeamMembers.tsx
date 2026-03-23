@@ -58,11 +58,11 @@ export function TeamMembers({
   const [inviteError, setInviteError] = useState<string | null>(null);
 
   return (
-    <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
+    <section className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-[#f1f0f0]">Team</h2>
-          <p className="mt-1 text-sm text-[#5f5e70]">
+          <h2 className="text-lg font-semibold text-[#F5F0E8]">Team</h2>
+          <p className="mt-1 text-sm text-[#5a5040]">
             People in this organization. Invites use the same flow as onboarding.
           </p>
         </div>
@@ -72,7 +72,7 @@ export function TeamMembers({
             setInviteOpen(true);
             setInviteError(null);
           }}
-          className="rounded-lg border border-[#6c63ff]/50 px-4 py-2 text-sm font-medium text-[#6c63ff]"
+          className="rounded-lg border border-[#D4A853]/50 px-4 py-2 text-sm font-medium text-[#D4A853]"
         >
           Invite member
         </button>
@@ -82,21 +82,21 @@ export function TeamMembers({
         {members.map((m) => (
           <li
             key={m.id}
-            className="flex flex-wrap items-center gap-3 rounded-xl border border-[#2a2a3e] bg-[#0a0a12] px-4 py-3"
+            className="flex flex-wrap items-center gap-3 rounded-xl border border-[#2a2a2a] bg-[#080808] px-4 py-3"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1a1a2e] text-xs font-semibold text-[#f1f0f0]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1a1a1a] text-xs font-semibold text-[#F5F0E8]">
               {initials(m.email ?? undefined, m.user_id)}
             </div>
             <div className="min-w-0 flex-1">
-              <p className="truncate text-sm text-[#f1f0f0]">
+              <p className="truncate text-sm text-[#F5F0E8]">
                 {m.email ?? `User ${m.user_id.slice(0, 8)}…`}
               </p>
-              <p className="text-[11px] text-[#5f5e70]">
+              <p className="text-[11px] text-[#5a5040]">
                 Joined {new Date(m.created_at).toLocaleDateString()}
                 {m.user_id === currentUserId ? " · You" : ""}
               </p>
             </div>
-            <span className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-2 py-0.5 text-[11px] text-[#9998b0]">
+            <span className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-0.5 text-[11px] text-[#A09880]">
               {roleLabel(m.role)}
             </span>
           </li>
@@ -105,28 +105,28 @@ export function TeamMembers({
 
       {inviteOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-          <div className="w-full max-w-md rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6 shadow-2xl">
-            <h3 className="text-base font-semibold text-[#f1f0f0]">
+          <div className="w-full max-w-md rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6 shadow-2xl">
+            <h3 className="text-base font-semibold text-[#F5F0E8]">
               Invite member
             </h3>
-            <p className="mt-1 text-xs text-[#5f5e70]">
+            <p className="mt-1 text-xs text-[#5a5040]">
               They will receive an email with a link to join using that address.
             </p>
             <label className="mt-4 block space-y-1">
-              <span className="text-xs text-[#9998b0]">Email</span>
+              <span className="text-xs text-[#A09880]">Email</span>
               <input
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+                className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
                 placeholder="name@company.com"
               />
             </label>
             <label className="mt-3 block space-y-1">
-              <span className="text-xs text-[#9998b0]">Role</span>
+              <span className="text-xs text-[#A09880]">Role</span>
               <select
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+                className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
               >
                 {ROLES.map((r) => (
                   <option key={r.value} value={r.value}>
@@ -142,7 +142,7 @@ export function TeamMembers({
               <button
                 type="button"
                 onClick={() => setInviteOpen(false)}
-                className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#9998b0]"
+                className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#A09880]"
               >
                 Cancel
               </button>
@@ -166,7 +166,7 @@ export function TeamMembers({
                   setInviteOpen(false);
                   setEmail("");
                 }}
-                className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+                className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
               >
                 {inviting ? "Sending…" : "Send invite"}
               </button>

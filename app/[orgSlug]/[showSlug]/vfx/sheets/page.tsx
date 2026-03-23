@@ -8,17 +8,17 @@ export default function VfxSheetsPage({
 }) {
   return (
     <div className="px-4 py-8 md:px-8 space-y-6">
-      <div className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
-        <h2 className="text-sm font-semibold text-[#f1f0f0]">
+      <div className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
+        <h2 className="text-sm font-semibold text-[#F5F0E8]">
           VFX sheet history
         </h2>
-        <p className="mt-2 text-sm text-[#9998b0]">
+        <p className="mt-2 text-sm text-[#A09880]">
           Deliverable rows will appear here with file links and version stacks.
           The standalone generator stays available while we connect saves.
         </p>
         <Link
           href="/tools/vfx-sheet"
-          className="mt-4 inline-block text-sm font-medium text-[#6c63ff] hover:underline"
+          className="mt-4 inline-block text-sm font-medium text-[#D4A853] hover:underline"
         >
           Open VFX Sheet Generator
         </Link>

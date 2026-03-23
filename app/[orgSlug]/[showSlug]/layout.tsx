@@ -66,7 +66,7 @@ export default async function ShowLayout({
     })) ?? [];
 
   return (
-    <div className="flex min-h-screen bg-[#0a0a12]">
+    <div className="flex min-h-screen bg-[#080808]">
       <ShowSidebar
         orgSlug={org.slug}
         showSlug={params.showSlug}

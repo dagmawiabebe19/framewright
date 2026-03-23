@@ -18,7 +18,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "FRAMEWRIGHT — Post production, finally coordinated.",
   description:
-    "The post production operating system for film and television. Dailies, cuts, turnovers, and delivery — one URL, every department.",
+    "The operating system for episodic TV editorial. From dailies to delivery — every department, one platform.",
 };
 
 export default function RootLayout({
@@ -28,9 +28,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable}`}>
-      <body className="font-sans min-h-screen bg-fw-bg text-[#f1f0f0] antialiased">
+      <body className="font-sans min-h-screen bg-fw-bg text-[#F5F0E8] antialiased">
         <AiShell>{children}</AiShell>
       </body>
     </html>
   );
 }
+
+
+export const viewport = {
+  themeColor: "#080808",
+};

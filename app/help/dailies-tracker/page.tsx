@@ -12,11 +12,11 @@ export default function DailiesTrackerHelpPage() {
     >
       <ol className="list-decimal space-y-4 pl-5">
         <li>
-          Go to <strong className="text-[#f1f0f0]">Editorial → Dailies tracker</strong>{" "}
+          Go to <strong className="text-[#F5F0E8]">Editorial → Dailies tracker</strong>{" "}
           in the sidebar.
         </li>
         <li>
-          Use <strong className="text-[#f1f0f0]">Add roll</strong> in the
+          Use <strong className="text-[#F5F0E8]">Add roll</strong> in the
           Expected column to log rolls: name (e.g. A012), camera, card count,
           optional notes.
         </li>
@@ -25,7 +25,7 @@ export default function DailiesTrackerHelpPage() {
           Ingested → Synced → Uploaded → Confirmed.
         </li>
         <li>
-          Use <strong className="text-[#f1f0f0]">Send status email</strong> to
+          Use <strong className="text-[#F5F0E8]">Send status email</strong> to
           draft a team update from the current board. AI writes the body from
           your roll data; you edit recipients and text, then send.
         </li>

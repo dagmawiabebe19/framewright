@@ -35,29 +35,29 @@ export function AddRollModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-      <div className="w-full max-w-md rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6 shadow-2xl">
-        <h2 className="text-lg font-semibold text-[#f1f0f0]">Add roll</h2>
+      <div className="w-full max-w-md rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6 shadow-2xl">
+        <h2 className="text-lg font-semibold text-[#F5F0E8]">Add roll</h2>
         <div className="mt-4 space-y-3 text-sm">
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Roll name</span>
+            <span className="text-[#A09880]">Roll name</span>
             <input
               value={rollName}
               onChange={(e) => setRollName(e.target.value)}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 font-mono text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 font-mono text-[#F5F0E8]"
               placeholder="A012"
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Camera</span>
+            <span className="text-[#A09880]">Camera</span>
             <input
               value={camera}
               onChange={(e) => setCamera(e.target.value)}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
               placeholder="ARRI LF A"
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Card count</span>
+            <span className="text-[#A09880]">Card count</span>
             <input
               type="number"
               min={1}
@@ -65,24 +65,24 @@ export function AddRollModal({
               onChange={(e) =>
                 setCardCount(Math.max(1, Number(e.target.value) || 1))
               }
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Shoot date</span>
+            <span className="text-[#A09880]">Shoot date</span>
             <input
               type="date"
               value={shootDate}
               onChange={(e) => setShootDate(e.target.value)}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Notes</span>
+            <span className="text-[#A09880]">Notes</span>
             <textarea
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
-              className="min-h-[80px] w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="min-h-[80px] w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
             />
           </label>
           {err && <p className="text-sm text-red-300">{err}</p>}
@@ -91,7 +91,7 @@ export function AddRollModal({
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#9998b0]"
+            className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#A09880]"
           >
             Cancel
           </button>
@@ -133,7 +133,7 @@ export function AddRollModal({
               });
               onClose();
             }}
-            className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+            className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
           >
             Save
           </button>

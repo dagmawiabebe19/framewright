@@ -146,31 +146,31 @@ export function StatusEmailModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-      <div className="flex max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-[#2a2a3e] bg-[#12121e] shadow-2xl">
-        <div className="border-b border-[#2a2a3e] px-6 py-4">
-          <h2 className="text-lg font-semibold text-[#f1f0f0]">
+      <div className="flex max-h-[90vh] w-full max-w-2xl flex-col rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] shadow-2xl">
+        <div className="border-b border-[#2a2a2a] px-6 py-4">
+          <h2 className="text-lg font-semibold text-[#F5F0E8]">
             Send Dailies Status Email
           </h2>
-          <p className="text-xs text-[#5f5e70]">
+          <p className="text-xs text-[#5a5040]">
             AI drafts the body — edit recipients and text before sending.
           </p>
         </div>
         <div className="flex-1 space-y-3 overflow-y-auto px-6 py-4 text-sm">
           {loading && (
-            <p className="text-[#9998b0]">Drafting with AI…</p>
+            <p className="text-[#A09880]">Drafting with AI…</p>
           )}
           <div>
-            <span className="text-[#9998b0]">To</span>
-            <div className="mt-2 flex min-h-[40px] flex-wrap gap-2 rounded-lg border border-[#2a2a3e] bg-[#0a0a12] p-2">
+            <span className="text-[#A09880]">To</span>
+            <div className="mt-2 flex min-h-[40px] flex-wrap gap-2 rounded-lg border border-[#2a2a2a] bg-[#080808] p-2">
               {recipients.map((e) => (
                 <span
                   key={e}
-                  className="inline-flex items-center gap-1 rounded-full bg-[#1a1a2e] px-2 py-0.5 text-[11px] text-[#f1f0f0]"
+                  className="inline-flex items-center gap-1 rounded-full bg-[#1a1a1a] px-2 py-0.5 text-[11px] text-[#F5F0E8]"
                 >
                   {e}
                   <button
                     type="button"
-                    className="text-[#9998b0] hover:text-red-300"
+                    className="text-[#A09880] hover:text-red-300"
                     onClick={() => removeRecipient(e)}
                     aria-label={`Remove ${e}`}
                   >
@@ -190,12 +190,12 @@ export function StatusEmailModal({
                   }
                 }}
                 placeholder="add@email.com"
-                className="flex-1 rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-1.5 text-[#f1f0f0]"
+                className="flex-1 rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-1.5 text-[#F5F0E8]"
               />
               <button
                 type="button"
                 onClick={addRecipient}
-                className="rounded-lg border border-[#6c63ff]/40 px-3 py-1.5 text-[#6c63ff]"
+                className="rounded-lg border border-[#D4A853]/40 px-3 py-1.5 text-[#D4A853]"
               >
                 Add
               </button>
@@ -205,7 +205,7 @@ export function StatusEmailModal({
                 Add your distribution list in{" "}
                 <a
                   href={`/${orgSlug}/${showSlug}/settings`}
-                  className="text-[#6c63ff] underline"
+                  className="text-[#D4A853] underline"
                 >
                   Settings → Distribution Lists
                 </a>
@@ -214,37 +214,37 @@ export function StatusEmailModal({
             )}
           </div>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Subject</span>
+            <span className="text-[#A09880]">Subject</span>
             <input
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
             />
           </label>
           <label className="block space-y-1">
-            <span className="text-[#9998b0]">Body</span>
+            <span className="text-[#A09880]">Body</span>
             <textarea
               value={draftEmail}
               onChange={(e) => setDraftEmail(e.target.value)}
               rows={8}
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
             />
           </label>
           {error && <p className="text-sm text-red-300">{error}</p>}
         </div>
-        <div className="flex flex-wrap justify-end gap-2 border-t border-[#2a2a3e] px-6 py-4">
+        <div className="flex flex-wrap justify-end gap-2 border-t border-[#2a2a2a] px-6 py-4">
           <button
             type="button"
             disabled={loading}
             onClick={() => void regenerate()}
-            className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#9998b0] disabled:opacity-40"
+            className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#A09880] disabled:opacity-40"
           >
             Regenerate ↺
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#9998b0]"
+            className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#A09880]"
           >
             Cancel
           </button>
@@ -288,7 +288,7 @@ export function StatusEmailModal({
                 setSending(false);
               }
             }}
-            className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+            className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
           >
             {sending ? "Sending…" : "Send →"}
           </button>

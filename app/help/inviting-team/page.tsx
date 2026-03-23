@@ -12,10 +12,10 @@ export default function InvitingTeamHelpPage() {
       <ol className="list-decimal space-y-4 pl-5">
         <li>
           Open any show, then go to{" "}
-          <strong className="text-[#f1f0f0]">Settings → Team</strong>.
+          <strong className="text-[#F5F0E8]">Settings → Team</strong>.
         </li>
         <li>
-          Click <strong className="text-[#f1f0f0]">Invite member</strong>, enter
+          Click <strong className="text-[#F5F0E8]">Invite member</strong>, enter
           their email, and choose a role (AE, post coordinator, post supervisor,
           etc.).
         </li>

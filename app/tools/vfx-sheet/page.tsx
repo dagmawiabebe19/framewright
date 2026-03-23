@@ -11,18 +11,18 @@ export default async function StandaloneVfxSheetPage() {
   if (!user) {
     return (
       <div className="min-h-screen bg-fw-bg px-4 py-16 text-center">
-        <p className="text-lg text-[#f1f0f0]">Select a show first</p>
-        <p className="mt-2 text-sm text-[#9998b0]">
+        <p className="text-lg text-[#F5F0E8]">Select a show first</p>
+        <p className="mt-2 text-sm text-[#A09880]">
           Sign in to save VFX sheets to a production workspace.
         </p>
         <Link
           href="/auth"
-          className="mt-6 inline-block rounded-lg bg-[#6c63ff] px-5 py-2.5 text-sm font-semibold text-white"
+          className="mt-6 inline-block rounded-lg bg-[#D4A853] px-5 py-2.5 text-sm font-semibold text-white"
         >
           Sign in
         </Link>
-        <p className="mt-8 text-sm text-[#5f5e70]">
-          <Link href="/dashboard" className="text-[#6c63ff] hover:underline">
+        <p className="mt-8 text-sm text-[#5a5040]">
+          <Link href="/dashboard" className="text-[#D4A853] hover:underline">
             Dashboard
           </Link>
         </p>
@@ -39,13 +39,13 @@ export default async function StandaloneVfxSheetPage() {
   if (!orgIds.length) {
     return (
       <div className="min-h-screen bg-fw-bg px-4 py-16 text-center">
-        <p className="text-lg text-[#f1f0f0]">No workspace yet</p>
-        <p className="mt-2 text-sm text-[#9998b0]">
+        <p className="text-lg text-[#F5F0E8]">No workspace yet</p>
+        <p className="mt-2 text-sm text-[#A09880]">
           Complete onboarding to attach a show.
         </p>
         <Link
           href="/onboarding"
-          className="mt-6 inline-block text-[#6c63ff] hover:underline"
+          className="mt-6 inline-block text-[#D4A853] hover:underline"
         >
           Go to onboarding
         </Link>
@@ -95,12 +95,12 @@ export default async function StandaloneVfxSheetPage() {
 
   return (
     <div className="min-h-screen bg-fw-bg">
-      <div className="border-b border-fw-border bg-[#12121e]/80 px-4 py-3 text-sm text-[#9998b0] md:px-8">
-        <Link href="/dashboard" className="text-[#6c63ff] hover:underline">
+      <div className="border-b border-fw-border bg-[#0f0f0f]/80 px-4 py-3 text-sm text-[#A09880] md:px-8">
+        <Link href="/dashboard" className="text-[#D4A853] hover:underline">
           Dashboard
         </Link>
-        <span className="mx-2 text-[#5f5e70]">/</span>
-        <span className="text-[#f1f0f0]">VFX Sheet Generator</span>
+        <span className="mx-2 text-[#5a5040]">/</span>
+        <span className="text-[#F5F0E8]">VFX Sheet Generator</span>
       </div>
       <VfxSheetGenerator
         saveContext={{ episodes: typed }}

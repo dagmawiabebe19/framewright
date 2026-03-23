@@ -19,12 +19,12 @@ import { AddRollModal } from "./AddRollModal";
 import { StatusEmailModal } from "./StatusEmailModal";
 
 const COLUMNS: { id: DailiesStatus; label: string; tint: string }[] = [
-  { id: "expected", label: "EXPECTED", tint: "bg-[#2a2a3e]" },
+  { id: "expected", label: "EXPECTED", tint: "bg-[#2a2a2a]" },
   { id: "received", label: "RECEIVED", tint: "bg-[#1a2a3e]" },
   { id: "ingested", label: "INGESTED", tint: "bg-[#2a1a3e]" },
   { id: "synced", label: "SYNCED", tint: "bg-[#2a2a1a]" },
   { id: "uploaded", label: "UPLOADED", tint: "bg-[#1a2a1a]" },
-  { id: "confirmed", label: "CONFIRMED", tint: "bg-[#0a1a0a]" },
+  { id: "confirmed", label: "CONFIRMED", tint: "bg-[#0a1a10]" },
 ];
 
 export type DailiesRollRow = {
@@ -65,7 +65,7 @@ function RollCard({
       {...listeners}
       {...attributes}
       layout
-      className={`cursor-grab active:cursor-grabbing rounded-xl border border-[#2a2a3e] bg-[#12121e] p-3 shadow-[0_2px_8px_rgba(0,0,0,0.4)] ${
+      className={`cursor-grab active:cursor-grabbing rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] p-3 shadow-[0_2px_8px_rgba(0,0,0,0.4)] ${
         isDragging ? "opacity-70" : ""
       }`}
       initial={{ opacity: 0, x: -8 }}
@@ -73,18 +73,18 @@ function RollCard({
     >
       <div className="flex gap-2">
         <div className="min-w-0 flex-1">
-          <p className="font-mono text-lg font-semibold text-[#f1f0f0]">
+          <p className="font-mono text-lg font-semibold text-[#F5F0E8]">
             {roll.roll_name}
           </p>
-          <p className="text-xs text-[#9998b0]">
+          <p className="text-xs text-[#A09880]">
             {(roll.camera || "Camera") +
               (roll.card_count != null ? ` · ${roll.card_count} cards` : "")}
           </p>
           {roll.shoot_date && (
-            <p className="mt-1 text-[11px] text-[#5f5e70]">{roll.shoot_date}</p>
+            <p className="mt-1 text-[11px] text-[#5a5040]">{roll.shoot_date}</p>
           )}
           {roll.notes && (
-            <p className="mt-2 text-xs text-[#9998b0]" title={roll.notes}>
+            <p className="mt-2 text-xs text-[#A09880]" title={roll.notes}>
               {noteShort}
             </p>
           )}
@@ -114,16 +114,16 @@ function Column({
     <div className="min-w-[240px] sm:min-w-[260px] flex-shrink-0">
       <div className="mb-2 flex items-center justify-between gap-2">
         <div>
-          <p className="text-[11px] font-semibold tracking-wider text-[#5f5e70]">
+          <p className="text-[11px] font-semibold tracking-wider text-[#5a5040]">
             {col.label}
           </p>
-          <p className="text-xs text-[#9998b0]">{rolls.length}</p>
+          <p className="text-xs text-[#A09880]">{rolls.length}</p>
         </div>
         {col.id === "expected" && onAdd && (
           <button
             type="button"
             onClick={onAdd}
-            className="rounded-lg border border-[#2a2a3e] px-2 py-1 text-[11px] text-[#6c63ff]"
+            className="rounded-lg border border-[#2a2a2a] px-2 py-1 text-[11px] text-[#D4A853]"
           >
             Add roll
           </button>
@@ -132,7 +132,7 @@ function Column({
       <div
         ref={setNodeRef}
         className={`min-h-[320px] space-y-3 rounded-2xl border border-dashed p-2 transition ${
-          isOver ? "border-[#6c63ff]/60 bg-[#0f0f1a]" : "border-[#2a2a3e]/80"
+          isOver ? "border-[#D4A853]/60 bg-[#080808]" : "border-[#2a2a2a]/80"
         } ${col.tint}/30`}
       >
         {rolls.map((r) => (
@@ -283,7 +283,7 @@ export function DailiesBoard({
     <div className="relative space-y-6 px-4 pb-12 pt-4 md:px-8">
       {sentToast && (
         <div
-          className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] px-4 py-2 text-sm text-[#f1f0f0] shadow-lg"
+          className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] px-4 py-2 text-sm text-[#F5F0E8] shadow-lg"
           role="status"
         >
           {sentToast}
@@ -291,15 +291,15 @@ export function DailiesBoard({
       )}
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             Dailies
           </p>
-          <h1 className="text-2xl font-semibold text-[#f1f0f0]">
+          <h1 className="text-2xl font-semibold text-[#F5F0E8]">
             {episodeLabel}
           </h1>
-          <p className="text-sm text-[#9998b0]">{dateLabel}</p>
+          <p className="text-sm text-[#A09880]">{dateLabel}</p>
           {episodeOptions.length > 1 && (
-            <label className="mt-3 block max-w-xs text-xs text-[#9998b0]">
+            <label className="mt-3 block max-w-xs text-xs text-[#A09880]">
               <span className="mb-1 block">Episode</span>
               <select
                 value={episodeId}
@@ -309,7 +309,7 @@ export function DailiesBoard({
                     `/${orgSlug}/${showSlug}/editorial/dailies?episode=${encodeURIComponent(id)}`
                   );
                 }}
-                className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+                className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
               >
                 {episodeOptions.map((ep) => (
                   <option key={ep.id} value={ep.id}>
@@ -323,25 +323,25 @@ export function DailiesBoard({
         <button
           type="button"
           onClick={() => setEmailOpen(true)}
-          className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#6c63ff]/20 hover:bg-[#7b73ff]"
+          className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-[#D4A853]/20 hover:bg-[#E0B86A]"
         >
           Send status email
         </button>
       </div>
 
-      <div className="flex flex-wrap items-center gap-3 text-sm text-[#9998b0]">
+      <div className="flex flex-wrap items-center gap-3 text-sm text-[#A09880]">
         <span>Shoot day</span>
         <button
           type="button"
-          className="rounded-lg border border-[#2a2a3e] px-2 py-1"
+          className="rounded-lg border border-[#2a2a2a] px-2 py-1"
           onClick={() => setShootDay((d) => Math.max(1, d - 1))}
         >
           ←
         </button>
-        <span className="font-mono text-[#f1f0f0]">Day {shootDay}</span>
+        <span className="font-mono text-[#F5F0E8]">Day {shootDay}</span>
         <button
           type="button"
-          className="rounded-lg border border-[#2a2a3e] px-2 py-1"
+          className="rounded-lg border border-[#2a2a2a] px-2 py-1"
           onClick={() => setShootDay((d) => d + 1)}
         >
           →

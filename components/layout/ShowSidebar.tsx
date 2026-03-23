@@ -46,7 +46,7 @@ const navSections: NavSection[] = [
     label: "VFX",
     items: [
       { href: "/vfx/shots", label: "Shot tracker" },
-      { href: "/vfx/sheets", label: "VFX sheets", tour: "tour-nav-vfx-sheets" },
+      { href: "/tools/vfx-sheet", label: "VFX sheets", tour: "tour-nav-vfx-sheets" },
     ],
   },
   {
@@ -101,19 +101,19 @@ export function ShowSidebar({
 
   const inner = (
     <>
-      <div className="border-b border-[#2a2a3e] px-4 py-5">
+      <div className="border-b border-[#2a2a2a] px-4 py-5">
         <Link
           href="/dashboard"
-          className="text-xs font-medium uppercase tracking-[0.2em] text-[#6c63ff]"
+          className="text-xs font-medium uppercase tracking-[0.2em] text-[#D4A853]"
         >
           FRAMEWRIGHT
         </Link>
         <div className="mt-4" data-tour="tour-show-select">
-          <label className="text-[10px] uppercase tracking-wider text-[#5f5e70]">
+          <label className="text-[10px] uppercase tracking-wider text-[#5a5040]">
             Show
           </label>
           <select
-            className="mt-1 w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-2 py-2 text-sm text-[#f1f0f0] outline-none focus:border-[#6c63ff]"
+            className="mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-2 py-2 text-sm text-[#F5F0E8] outline-none focus:border-[#D4A853]"
             value={`${orgSlug}/${showSlug}`}
             onChange={(e) => {
               const [o, s] = e.target.value.split("/");
@@ -130,15 +130,15 @@ export function ShowSidebar({
             ))}
           </select>
         </div>
-        <p className="mt-3 text-xs leading-snug text-[#5f5e70]">
-          Current: <span className="text-[#9998b0]">{showName}</span>
+        <p className="mt-3 text-xs leading-snug text-[#5a5040]">
+          Current: <span className="text-[#A09880]">{showName}</span>
         </p>
       </div>
 
       <nav className="flex-1 overflow-y-auto px-2 py-4">
         {navSections.map((section) => (
           <div key={section.label} className="mb-6">
-            <p className="px-3 text-[10px] font-semibold uppercase tracking-wider text-[#5f5e70]">
+            <p className="px-3 text-[10px] font-semibold uppercase tracking-wider text-[#5a5040]">
               {section.label}
             </p>
             <div data-tour={section.sectionTour}>
@@ -154,8 +154,8 @@ export function ShowSidebar({
                         onClick={() => setMobileOpen(false)}
                         className={`block rounded-lg px-3 py-2 text-sm transition duration-150 ease-out ${
                           active
-                            ? "border border-[#2a2a3e] bg-[#1a1a2e] text-[#f1f0f0]"
-                            : "text-[#9998b0] hover:bg-[#12121e] hover:text-[#f1f0f0]"
+                            ? "border border-[#3d2e00] border-l-2 border-l-[#D4A853] bg-[#1a1200] text-[#D4A853]"
+                            : "text-[#A09880] hover:bg-[#111111] hover:text-[#F5F0E8]"
                         }`}
                       >
                         {item.label}
@@ -169,14 +169,14 @@ export function ShowSidebar({
         ))}
       </nav>
 
-      <div className="border-t border-[#2a2a3e] px-2 py-3">
+      <div className="border-t border-[#2a2a2a] px-2 py-3">
         <Link
           href="/help"
           onClick={() => setMobileOpen(false)}
-          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-[#9998b0] transition hover:bg-[#12121e] hover:text-[#f1f0f0]"
+          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-[#A09880] transition hover:bg-[#0f0f0f] hover:text-[#F5F0E8]"
         >
           <span
-            className="flex h-7 w-7 items-center justify-center rounded-full border border-[#2a2a3e] text-xs text-[#6c63ff]"
+            className="flex h-7 w-7 items-center justify-center rounded-full border border-[#2a2a2a] text-xs text-[#D4A853]"
             aria-hidden
           >
             ?
@@ -189,12 +189,12 @@ export function ShowSidebar({
 
   return (
     <>
-      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-[#2a2a3e] bg-[#0a0a12]/95 px-4 py-3 backdrop-blur lg:hidden">
-        <span className="text-sm font-medium text-[#f1f0f0]">{showName}</span>
+      <div className="sticky top-0 z-30 flex items-center justify-between border-b border-[#2a2a2a] bg-[#080808]/95 px-4 py-3 backdrop-blur lg:hidden">
+        <span className="text-sm font-medium text-[#F5F0E8]">{showName}</span>
         <button
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
-          className="rounded-lg border border-[#2a2a3e] px-3 py-1.5 text-xs text-[#f1f0f0] transition duration-150 hover:bg-[#12121e]"
+          className="rounded-lg border border-[#2a2a2a] px-3 py-1.5 text-xs text-[#F5F0E8] transition duration-150 hover:bg-[#0f0f0f]"
         >
           {mobileOpen ? "Close" : "Menu"}
         </button>
@@ -208,7 +208,7 @@ export function ShowSidebar({
         />
       )}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 flex w-[240px] flex-col border-r border-[#2a2a3e] bg-[#12121e] transition-transform duration-300 ease-out lg:static lg:z-0 lg:translate-x-0 ${
+        className={`fixed inset-y-0 left-0 z-50 flex w-[240px] flex-col border-r border-[#2a2a2a] bg-[#0f0f0f] transition-transform duration-300 ease-out lg:static lg:z-0 lg:translate-x-0 ${
           mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         }`}
       >

@@ -34,11 +34,11 @@ function statusPillClass(status: string): string {
     case "implemented":
       return "border-emerald-500/50 bg-emerald-950/40 text-emerald-200";
     case "deferred":
-      return "border-[#3a3a48] bg-[#1a1a24] text-[#9998b0]";
+      return "border-[#3a3a48] bg-[#1a1a24] text-[#A09880]";
     case "rejected":
-      return "border-[#3a3a48] bg-[#1a1a24] text-[#5f5e70] line-through";
+      return "border-[#3a3a48] bg-[#1a1a24] text-[#5a5040] line-through";
     default:
-      return "border-[#2a2a3e] text-[#9998b0]";
+      return "border-[#2a2a2a] text-[#A09880]";
   }
 }
 
@@ -85,10 +85,10 @@ export function CutNoteItem({
   };
 
   return (
-    <div className="rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[11px] text-[#c4c4d4]">
+    <div className="rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[11px] text-[#c4c4d4]">
       <div className="flex flex-wrap items-center gap-2">
-        <span className="font-mono text-[#6c63ff]">{note.tc ?? "—"}</span>
-        <span className="text-[#5f5e70]">·</span>
+        <span className="font-mono text-[#D4A853]">{note.tc ?? "—"}</span>
+        <span className="text-[#5a5040]">·</span>
         <span>{note.department ?? "—"}</span>
         <button
           type="button"
@@ -99,8 +99,8 @@ export function CutNoteItem({
           {status}
         </button>
       </div>
-      <p className="mt-2 whitespace-pre-wrap text-[#f1f0f0]">{note.note}</p>
-      <p className="mt-2 text-[10px] text-[#5f5e70]">
+      <p className="mt-2 whitespace-pre-wrap text-[#F5F0E8]">{note.note}</p>
+      <p className="mt-2 text-[10px] text-[#5a5040]">
         {who} · {new Date(note.created_at).toLocaleString()}
       </p>
     </div>

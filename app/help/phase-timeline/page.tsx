@@ -17,20 +17,20 @@ export default function PhaseTimelineHelpPage() {
       </p>
       <ul className="list-disc space-y-3 pl-5">
         <li>
-          <strong className="text-[#f1f0f0]">Cut phases</strong> advance when you
+          <strong className="text-[#F5F0E8]">Cut phases</strong> advance when you
           log the matching cut type in the cut log.
         </li>
         <li>
-          <strong className="text-[#f1f0f0]">Color / Sound</strong> look for
+          <strong className="text-[#F5F0E8]">Color / Sound</strong> look for
           approved color and sound turnover deliverables.
         </li>
         <li>
-          <strong className="text-[#f1f0f0]">VFX finals</strong> completes only
+          <strong className="text-[#F5F0E8]">VFX finals</strong> completes only
           when there is at least one VFX shot and every shot is approved — if
           there are zero shots, the phase stays upcoming until you add work.
         </li>
         <li>
-          <strong className="text-[#f1f0f0]">Delivery</strong> follows the
+          <strong className="text-[#F5F0E8]">Delivery</strong> follows the
           episode status when the room marks delivered.
         </li>
       </ul>

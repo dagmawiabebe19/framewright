@@ -298,11 +298,11 @@ export function ShotTracker({
     <div className="space-y-6 px-4 pb-12 pt-4 md:px-8">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">VFX</p>
-          <h1 className="text-2xl font-semibold text-[#f1f0f0]">VFX Shots</h1>
-          <p className="text-sm text-[#9998b0]">{showName}</p>
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">VFX</p>
+          <h1 className="text-2xl font-semibold text-[#F5F0E8]">VFX Shots</h1>
+          <p className="text-sm text-[#A09880]">{showName}</p>
         </div>
-        <div className="text-sm text-[#9998b0]">{stats.total} shots</div>
+        <div className="text-sm text-[#A09880]">{stats.total} shots</div>
       </div>
 
       <div className="flex flex-wrap gap-2 text-xs">
@@ -310,7 +310,7 @@ export function ShotTracker({
           <button
             type="button"
             onClick={() => setDeliverableFilter(null)}
-            className="rounded-full border border-[#6c63ff]/40 bg-[#1a1a2e] px-3 py-1 text-[11px] text-[#6c63ff]"
+            className="rounded-full border border-[#D4A853]/40 bg-[#1a1a1a] px-3 py-1 text-[11px] text-[#D4A853]"
           >
             Clear deliverable filter
           </button>
@@ -318,7 +318,7 @@ export function ShotTracker({
         <select
           value={episodeFilter}
           onChange={(e) => setEpisodeFilter(e.target.value)}
-          className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-3 py-1 text-[#f1f0f0]"
+          className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-1 text-[#F5F0E8]"
         >
           <option value="all">All episodes</option>
           {episodes.map(([id, num]) => (
@@ -330,7 +330,7 @@ export function ShotTracker({
         <select
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
-          className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-3 py-1 text-[#f1f0f0]"
+          className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-1 text-[#F5F0E8]"
         >
           <option value="all">All statuses</option>
           {STATUS_OPTIONS.map((s) => (
@@ -342,7 +342,7 @@ export function ShotTracker({
         <select
           value={priorityFilter}
           onChange={(e) => setPriorityFilter(e.target.value)}
-          className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-3 py-1 text-[#f1f0f0]"
+          className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-1 text-[#F5F0E8]"
         >
           <option value="all">All priorities</option>
           {PRI_OPTIONS.map((p) => (
@@ -354,7 +354,7 @@ export function ShotTracker({
         <button
           type="button"
           onClick={exportSelected}
-          className="rounded-full border border-[#2a2a3e] px-3 py-1 text-[#6c63ff]"
+          className="rounded-full border border-[#2a2a2a] px-3 py-1 text-[#D4A853]"
         >
           Export selected
         </button>
@@ -362,16 +362,16 @@ export function ShotTracker({
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          ["Total", stats.total, "text-[#f1f0f0]"],
+          ["Total", stats.total, "text-[#F5F0E8]"],
           ["Approved", stats.approved, "text-emerald-400"],
           ["Pending", stats.pending, "text-amber-300"],
           ["High priority", stats.high, "text-red-300"],
         ].map(([label, val, cls]) => (
           <div
             key={String(label)}
-            className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-4"
+            className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-4"
           >
-            <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+            <p className="text-xs uppercase tracking-wider text-[#5a5040]">
               {label}
             </p>
             <p className={`mt-2 text-2xl font-semibold ${cls}`}>{val}</p>
@@ -379,9 +379,9 @@ export function ShotTracker({
         ))}
       </div>
 
-      <div className="overflow-x-auto rounded-2xl border border-[#2a2a3e]">
+      <div className="overflow-x-auto rounded-2xl border border-[#2a2a2a]">
         <table className="min-w-[1100px] w-full border-collapse text-left text-xs">
-          <thead className="bg-[#0f0f1a] text-[#5f5e70]">
+          <thead className="bg-[#080808] text-[#5a5040]">
             <tr>
               <th className="px-2 py-2"> </th>
               <th className="px-2 py-2">Shot</th>
@@ -400,7 +400,7 @@ export function ShotTracker({
             {filtered.map((s) => (
               <motion.tr
                 key={s.id}
-                className="border-t border-[#2a2a3e]/60 hover:bg-[#14142a]"
+                className="border-t border-[#2a2a2a]/60 hover:bg-[#14142a]"
                 layout
                 animate={
                   flashId === s.id
@@ -423,11 +423,11 @@ export function ShotTracker({
                     }}
                   />
                 </td>
-                <td className="px-2 py-2 font-mono text-[11px] font-semibold text-[#f1f0f0]">
+                <td className="px-2 py-2 font-mono text-[11px] font-semibold text-[#F5F0E8]">
                   {s.shot_id}
                 </td>
                 <td className="px-2 py-2">
-                  <span className="rounded-full border border-[#2a2a3e] px-2 py-0.5 text-[10px] text-[#9998b0]">
+                  <span className="rounded-full border border-[#2a2a2a] px-2 py-0.5 text-[10px] text-[#A09880]">
                     {s.episode_number}
                   </span>
                 </td>
@@ -444,7 +444,7 @@ export function ShotTracker({
                     onChange={(e) =>
                       void patchShot(s.id, { priority: e.target.value || null })
                     }
-                    className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-2 py-1 text-[11px]"
+                    className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-1 text-[11px]"
                   >
                     <option value="">—</option>
                     {PRI_OPTIONS.map((p) => (
@@ -460,7 +460,7 @@ export function ShotTracker({
                     onChange={(e) =>
                       void patchShot(s.id, { status: e.target.value })
                     }
-                    className="rounded-full border border-[#2a2a3e] bg-[#12121e] px-2 py-1 text-[11px]"
+                    className="rounded-full border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-1 text-[11px]"
                   >
                     {STATUS_OPTIONS.map((st) => (
                       <option key={st} value={st}>
@@ -475,7 +475,7 @@ export function ShotTracker({
                     onChange={(e) =>
                       void patchShot(s.id, { vendor: e.target.value || null })
                     }
-                    className="w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-[11px] focus:border-[#6c63ff] focus:bg-[#1a1a2e]"
+                    className="w-full rounded border border-transparent bg-transparent px-1 py-0.5 text-[11px] focus:border-[#D4A853] focus:bg-[#1a1a1a]"
                   />
                 </td>
               </motion.tr>
@@ -484,7 +484,7 @@ export function ShotTracker({
         </table>
       </div>
 
-      <p className="text-[11px] text-[#5f5e70]">
+      <p className="text-[11px] text-[#5a5040]">
         Frame rate: {frameRate}. Updates sync live across the team.
       </p>
     </div>

@@ -3,13 +3,67 @@
 @tailwind utilities;
 
 :root {
-  --surface: #0f0f1a;
-  --card: #1a1a2e;
-  --accent: #6c63ff;
+  --fw-bg-base: #080808;
+  --fw-bg-surface: #0f0f0f;
+  --fw-bg-elevated: #1a1a1a;
+  --fw-bg-hover: #222222;
+  --fw-bg-active: #2a2a2a;
+
+  --fw-gold: #D4A853;
+  --fw-gold-hover: #E0B86A;
+  --fw-gold-muted: #8B6914;
+  --fw-gold-bg: #1a1200;
+  --fw-gold-border: #3d2e00;
+
+  --fw-text-primary: #F5F0E8;
+  --fw-text-secondary: #A09880;
+  --fw-text-muted: #5a5040;
+  --fw-text-gold: #D4A853;
+
+  --fw-border: #2a2a2a;
+  --fw-border-strong: #3a3a3a;
+  --fw-border-gold: #3d2e00;
+
+  --fw-success: #4CAF7D;
+  --fw-success-bg: #0a1a10;
+  --fw-warning: #D4A853;
+  --fw-warning-bg: #1a1200;
+  --fw-danger: #E05252;
+  --fw-danger-bg: #1a0808;
+  --fw-info: #6BA3BE;
+  --fw-info-bg: #081218;
+}
+
+* {
+  scrollbar-color: #2a2a2a #080808;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #3a3a3a;
+}
+
+::selection {
+  background: rgba(212, 168, 83, 0.2);
 }
 
 body {
-  @apply bg-fw-bg text-white antialiased;
+  background: var(--fw-bg-base);
+  color: var(--fw-text-primary);
+  @apply antialiased;
 }
 
 @keyframes fw-feed-line {
@@ -26,4 +80,16 @@ body {
 
 .fw-feed-line {
   animation: fw-feed-line 3.6s ease-in-out infinite;
+}
+
+a {
+  color: var(--fw-gold);
+}
+
+a:hover {
+  color: var(--fw-gold-hover);
+}
+
+.font-mono {
+  color: var(--fw-gold);
 }

@@ -69,13 +69,13 @@ export default function ToolsLauncherPage({
   return (
     <div className="px-4 py-8 md:px-8">
       <div>
-        <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+        <p className="text-xs uppercase tracking-wider text-[#5a5040]">
           Tool suite
         </p>
-        <h1 className="mt-1 text-2xl font-semibold text-[#f1f0f0]">
+        <h1 className="mt-1 text-2xl font-semibold text-[#F5F0E8]">
           Generators and analyzers
         </h1>
-        <p className="mt-2 max-w-2xl text-sm text-[#9998b0]">
+        <p className="mt-2 max-w-2xl text-sm text-[#A09880]">
           Launching from an episode will pre-fill show metadata, auto-version
           deliverables, and log exports to the activity feed — wiring lands in
           Phase 2.
@@ -88,26 +88,26 @@ export default function ToolsLauncherPage({
             <Link
               key={t.name}
               href={t.href}
-              className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-5 transition duration-150 ease-out hover:border-[#6c63ff]/40"
+              className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-5 transition duration-150 ease-out hover:border-[#D4A853]/40"
             >
-              <h2 className="text-sm font-semibold text-[#f1f0f0]">{t.name}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-[#9998b0]">
+              <h2 className="text-sm font-semibold text-[#F5F0E8]">{t.name}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#A09880]">
                 {t.desc}
               </p>
-              <p className="mt-3 text-[11px] font-medium uppercase tracking-wide text-[#6c63ff]">
+              <p className="mt-3 text-[11px] font-medium uppercase tracking-wide text-[#D4A853]">
                 Open tool
               </p>
             </Link>
           ) : (
             <div
               key={t.name}
-              className="rounded-2xl border border-[#2a2a3e] bg-[#12121e]/80 p-5 opacity-80"
+              className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f]/80 p-5 opacity-80"
             >
-              <h2 className="text-sm font-semibold text-[#f1f0f0]">{t.name}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-[#9998b0]">
+              <h2 className="text-sm font-semibold text-[#F5F0E8]">{t.name}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#A09880]">
                 {t.desc}
               </p>
-              <p className="mt-3 text-[11px] font-medium uppercase tracking-wide text-[#5f5e70]">
+              <p className="mt-3 text-[11px] font-medium uppercase tracking-wide text-[#5a5040]">
                 Build in progress
               </p>
             </div>

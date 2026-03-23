@@ -25,7 +25,7 @@ const EP_STATUS_STYLES: Record<
 > = {
   prep: {
     label: "Prep",
-    className: "bg-[#1e1e3a] text-[#9998b0] border-[#3a3a5e]",
+    className: "bg-[#1e1e3a] text-[#A09880] border-[#3a3a5e]",
   },
   shooting: {
     label: "Shooting",
@@ -41,7 +41,7 @@ const EP_STATUS_STYLES: Record<
   },
   delivered: {
     label: "Delivered",
-    className: "bg-[#0a1a0a] text-[#22c55e] border-[#1a3a1a]",
+    className: "bg-[#0a1a10] text-[#22c55e] border-[#1a3a1a]",
   },
 };
 
@@ -53,13 +53,13 @@ function shortType(t: string) {
 }
 
 function cellDot(status: string | undefined) {
-  if (!status) return { color: "bg-[#5f5e70]", label: "—" };
+  if (!status) return { color: "bg-[#5a5040]", label: "—" };
   if (status === "approved")
     return { color: "bg-emerald-500", label: "Approved" };
   if (status === "draft" || status === "sent" || status === "received")
     return { color: "bg-amber-400", label: "Active" };
   if (status === "rejected") return { color: "bg-red-500", label: "Rejected" };
-  return { color: "bg-[#5f5e70]", label: status };
+  return { color: "bg-[#5a5040]", label: status };
 }
 
 function formatFeedTime(iso: string) {
@@ -231,12 +231,12 @@ export function ShowOverviewBody({
       <div className="min-w-0 space-y-10">
         <section>
           <div className="flex items-end justify-between gap-4">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5f5e70]">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5a5040]">
               Episode status
             </h2>
             <Link
               href={`/${orgSlug}/${showSlug}/episodes`}
-              className="text-xs font-medium text-[#6c63ff] hover:underline"
+              className="text-xs font-medium text-[#D4A853] hover:underline"
             >
               Manage episodes
             </Link>
@@ -273,10 +273,10 @@ export function ShowOverviewBody({
                 <Link
                   key={ep.id}
                   href={`/${orgSlug}/${showSlug}/episodes/${ep.id}`}
-                  className="min-w-[220px] max-w-[260px] flex-shrink-0 rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-4 transition duration-150 hover:border-[#6c63ff]/35"
+                  className="min-w-[220px] max-w-[260px] flex-shrink-0 rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-4 transition duration-150 hover:border-[#D4A853]/35"
                 >
                   <div className="flex items-start justify-between gap-2">
-                    <p className="font-mono text-sm text-[#f1f0f0]">
+                    <p className="font-mono text-sm text-[#F5F0E8]">
                       {ep.episode_number}
                     </p>
                     <span
@@ -285,56 +285,56 @@ export function ShowOverviewBody({
                       {st.label}
                     </span>
                   </div>
-                  <p className="mt-2 line-clamp-2 text-sm text-[#9998b0]">
+                  <p className="mt-2 line-clamp-2 text-sm text-[#A09880]">
                     {ep.title}
                   </p>
-                  <p className="mt-3 text-xs text-[#5f5e70]">{lockLabel}</p>
-                  <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-[#0a0a12]">
+                  <p className="mt-3 text-xs text-[#5a5040]">{lockLabel}</p>
+                  <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-[#080808]">
                     <div
-                      className="h-full rounded-full bg-[#6c63ff]/80 transition-all"
+                      className="h-full rounded-full bg-[#D4A853]/80 transition-all"
                       style={{ width: `${pct}%` }}
                     />
                   </div>
-                  <p className="mt-1 text-[10px] text-[#5f5e70]">
+                  <p className="mt-1 text-[10px] text-[#5a5040]">
                     Deliverables cleared: {done}/{DELIVERABLE_TYPES.length}
                   </p>
                 </Link>
               );
             })}
             {episodes.length === 0 && (
-              <p className="text-sm text-[#9998b0]">
+              <p className="text-sm text-[#A09880]">
                 No episodes yet — add one from the Episodes screen.
               </p>
             )}
           </div>
         </section>
 
-        <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5f5e70]">
+        <section className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5a5040]">
             Active alerts
           </h2>
-          <p className="mt-3 text-sm leading-relaxed text-[#9998b0]">
+          <p className="mt-3 text-sm leading-relaxed text-[#A09880]">
             When editorial logs cuts, dailies move on the tracker, and VFX shots
             carry real status, FRAMEWRIGHT AI will rank what needs attention and
             attach one-click actions — sound turnover requests, vendor nudges, ADR
             coverage checks.
           </p>
-          <div className="mt-5 rounded-xl border border-dashed border-[#2a2a3e] bg-[#0a0a12]/60 px-4 py-6 text-center text-sm text-[#5f5e70]">
+          <div className="mt-5 rounded-xl border border-dashed border-[#2a2a2a] bg-[#080808]/60 px-4 py-6 text-center text-sm text-[#5a5040]">
             No blocking alerts yet — feed production data to wake this panel up.
           </div>
         </section>
 
         <section className="overflow-x-auto" data-tour="tour-deliverables-matrix">
-          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5f5e70]">
+          <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5a5040]">
             Deliverables matrix
           </h2>
-          <p className="mt-2 text-xs text-[#5f5e70]">
+          <p className="mt-2 text-xs text-[#5a5040]">
             Rows are episodes; columns are deliverable types. Dots reflect the
             latest version in the room.
           </p>
           <table className="mt-4 w-full min-w-[720px] border-collapse text-left text-xs">
             <thead>
-              <tr className="border-b border-[#2a2a3e] text-[#5f5e70]">
+              <tr className="border-b border-[#2a2a2a] text-[#5a5040]">
                 <th className="py-2 pr-3 font-medium">Episode</th>
                 {DELIVERABLE_TYPES.map((t) => (
                   <th key={t} className="px-1 py-2 font-mono text-[10px]">
@@ -345,8 +345,8 @@ export function ShowOverviewBody({
             </thead>
             <tbody>
               {episodes.map((ep) => (
-                <tr key={ep.id} className="border-b border-[#2a2a3e]/60">
-                  <td className="py-2 pr-3 font-mono text-[#f1f0f0]">
+                <tr key={ep.id} className="border-b border-[#2a2a2a]/60">
+                  <td className="py-2 pr-3 font-mono text-[#F5F0E8]">
                     {ep.episode_number}
                   </td>
                   {DELIVERABLE_TYPES.map((t) => {
@@ -366,7 +366,7 @@ export function ShowOverviewBody({
                             className={`inline-block h-2.5 w-2.5 rounded-full ${dot.color}`}
                             title={dot.label}
                           />
-                          <span className="font-mono text-[10px] text-[#5f5e70]">
+                          <span className="font-mono text-[10px] text-[#5a5040]">
                             {cell ? `v${cell.version}` : "—"}
                           </span>
                         </motion.div>
@@ -378,15 +378,15 @@ export function ShowOverviewBody({
             </tbody>
           </table>
           {episodes.length === 0 && (
-            <p className="mt-4 text-sm text-[#9998b0]">
+            <p className="mt-4 text-sm text-[#A09880]">
               Create an episode to start tracking turnover packages.
             </p>
           )}
         </section>
       </div>
 
-      <aside className="space-y-4 lg:border-l lg:border-[#2a2a3e] lg:pl-6">
-        <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5f5e70]">
+      <aside className="space-y-4 lg:border-l lg:border-[#2a2a2a] lg:pl-6">
+        <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5a5040]">
           Activity
         </h2>
         <ul className="space-y-3">
@@ -407,15 +407,15 @@ export function ShowOverviewBody({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
-                  className="rounded-xl border border-[#2a2a3e] bg-[#12121e] px-3 py-3"
+                  className="rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-3"
                 >
-                  <p className="text-sm text-[#f1f0f0]">
-                    <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#1a1a2e] text-[10px] font-semibold text-[#6c63ff]">
+                  <p className="text-sm text-[#F5F0E8]">
+                    <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#1a1a1a] text-[10px] font-semibold text-[#D4A853]">
                       FW
                     </span>
                     {label}
                   </p>
-                  <p className="mt-1 pl-9 text-[11px] text-[#5f5e70]">
+                  <p className="mt-1 pl-9 text-[11px] text-[#5a5040]">
                     {formatFeedTime(row.created_at)}
                   </p>
                 </motion.li>
@@ -423,7 +423,7 @@ export function ShowOverviewBody({
             })}
           </AnimatePresence>
           {feed.length === 0 && (
-            <li className="text-sm text-[#9998b0]">
+            <li className="text-sm text-[#A09880]">
               The feed fills as soon as someone exports a turnover, moves
               dailies, or posts a cut note.
             </li>

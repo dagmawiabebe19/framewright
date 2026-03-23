@@ -31,7 +31,7 @@ function statusPillClass(status: string): string {
     case "rejected":
       return "border-red-500/50 bg-red-950/40 text-red-200";
     default:
-      return "border-[#3a3a48] bg-[#1a1a24] text-[#9998b0]";
+      return "border-[#3a3a48] bg-[#1a1a24] text-[#A09880]";
   }
 }
 
@@ -112,16 +112,16 @@ export function DeliverableCard({
   return (
     <motion.div
       layout
-      className="rounded-xl border border-[#2a2a3e] bg-[#0a0a12] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
+      className="rounded-xl border border-[#2a2a2a] bg-[#080808] p-4 shadow-[0_2px_8px_rgba(0,0,0,0.4)]"
     >
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div>
-          <p className="text-sm font-medium text-[#f1f0f0]">
+          <p className="text-sm font-medium text-[#F5F0E8]">
             {title}{" "}
-            <span className="font-mono text-[#9998b0]">v{d.version}</span>
+            <span className="font-mono text-[#A09880]">v{d.version}</span>
           </p>
           {subtitle && (
-            <p className="mt-1 text-[11px] text-[#9998b0]">{subtitle}</p>
+            <p className="mt-1 text-[11px] text-[#A09880]">{subtitle}</p>
           )}
         </div>
         <button
@@ -133,7 +133,7 @@ export function DeliverableCard({
           {status}
         </button>
       </div>
-      <p className="mt-2 text-[11px] text-[#5f5e70]">
+      <p className="mt-2 text-[11px] text-[#5a5040]">
         {new Date(d.created_at).toLocaleString()} · {who}
       </p>
       <div className="mt-3 flex flex-wrap gap-2">
@@ -142,7 +142,7 @@ export function DeliverableCard({
           <button
             type="button"
             onClick={() => void download()}
-            className="text-xs font-semibold text-[#6c63ff] hover:underline"
+            className="text-xs font-semibold text-[#D4A853] hover:underline"
           >
             Download
           </button>
@@ -150,7 +150,7 @@ export function DeliverableCard({
         {showViewShots && (
           <Link
             href={`/${orgSlug}/${showSlug}/vfx/shots?deliverable=${d.id}`}
-            className="text-xs font-semibold text-[#6c63ff] hover:underline"
+            className="text-xs font-semibold text-[#D4A853] hover:underline"
           >
             View shots
           </Link>

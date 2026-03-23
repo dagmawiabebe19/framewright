@@ -106,10 +106,10 @@ export default async function SettingsPage({
   return (
     <div className="mx-auto max-w-3xl space-y-8 px-4 py-8 md:px-8">
       <header>
-        <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+        <p className="text-xs uppercase tracking-wider text-[#5a5040]">
           {show.name}
         </p>
-        <h1 className="text-2xl font-semibold text-[#f1f0f0]">Settings</h1>
+        <h1 className="text-2xl font-semibold text-[#F5F0E8]">Settings</h1>
       </header>
 
       <ShowInfoSection

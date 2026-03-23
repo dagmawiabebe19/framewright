@@ -149,7 +149,7 @@ export function AiAssistant() {
           <motion.div
             role="dialog"
             aria-modal
-            className="w-full max-w-[640px] overflow-hidden rounded-xl border border-[#2a2a3e] bg-[#0a0a12] shadow-[0_24px_48px_rgba(0,0,0,0.8)]"
+            className="w-full max-w-[640px] overflow-hidden rounded-xl border border-[#2a2a2a] bg-[#080808] shadow-[0_24px_48px_rgba(0,0,0,0.8)]"
             style={{ maxHeight: 480 }}
             initial={{ y: 8, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -164,14 +164,14 @@ export function AiAssistant() {
                 onChange={(e) => setInput(e.target.value)}
                 placeholder={placeholder}
                 disabled={!showId}
-                className="h-[52px] w-full border-0 border-b border-[#2a2a3e] bg-[#12121e] px-4 text-base text-[#f1f0f0] outline-none placeholder:text-[#5f5e70] disabled:opacity-50"
+                className="h-[52px] w-full border-0 border-b border-[#2a2a2a] bg-[#0f0f0f] px-4 text-base text-[#F5F0E8] outline-none placeholder:text-[#5a5040] disabled:opacity-50"
               />
             </form>
 
             <div className="max-h-[320px] overflow-y-auto p-4">
               {!output && !streaming && !thinking && showId && (
                 <div className="space-y-3">
-                  <p className="text-[11px] uppercase tracking-wider text-[#5f5e70]">
+                  <p className="text-[11px] uppercase tracking-wider text-[#5a5040]">
                     Quick actions
                   </p>
                   <AiQuickActions
@@ -184,12 +184,12 @@ export function AiAssistant() {
               {(thinking || output || streaming) && (
                 <div className="text-[14px] leading-[1.7] text-[#d4d4e0]">
                   {thinking && !output ? (
-                    <span className="text-[#5f5e70]">thinking…</span>
+                    <span className="text-[#5a5040]">thinking…</span>
                   ) : (
                     <>
                       {formatAiResponseToNodes(output)}
                       {streaming && (
-                        <span className="ml-0.5 inline-block w-2 animate-pulse text-[#6c63ff]">
+                        <span className="ml-0.5 inline-block w-2 animate-pulse text-[#D4A853]">
                           |
                         </span>
                       )}
@@ -199,24 +199,24 @@ export function AiAssistant() {
               )}
 
               {!showId && (
-                <p className="text-sm text-[#9998b0]">
+                <p className="text-sm text-[#A09880]">
                   Navigate to a show workspace to unlock production context.
                 </p>
               )}
 
               {done && output && !streaming && (
-                <div className="mt-4 flex items-center gap-2 border-t border-[#2a2a3e] pt-3 text-[12px] text-[#5f5e70]">
+                <div className="mt-4 flex items-center gap-2 border-t border-[#2a2a2a] pt-3 text-[12px] text-[#5a5040]">
                   <span>Was this helpful?</span>
                   <button
                     type="button"
-                    className="rounded border border-[#2a2a3e] px-2 py-0.5 hover:border-[#6c63ff]"
+                    className="rounded border border-[#2a2a2a] px-2 py-0.5 hover:border-[#D4A853]"
                     onClick={() => void feedback(true)}
                   >
                     👍
                   </button>
                   <button
                     type="button"
-                    className="rounded border border-[#2a2a3e] px-2 py-0.5 hover:border-[#6c63ff]"
+                    className="rounded border border-[#2a2a2a] px-2 py-0.5 hover:border-[#D4A853]"
                     onClick={() => void feedback(false)}
                   >
                     👎

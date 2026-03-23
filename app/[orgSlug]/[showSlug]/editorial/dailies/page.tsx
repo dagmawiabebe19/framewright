@@ -56,7 +56,7 @@ export default async function DailiesPage({
 
   if (!episodeId) {
     return (
-      <div className="px-4 py-10 text-sm text-[#9998b0]">
+      <div className="px-4 py-10 text-sm text-[#A09880]">
         Create an episode before tracking dailies.
       </div>
     );

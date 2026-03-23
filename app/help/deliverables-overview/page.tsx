@@ -11,7 +11,7 @@ export default function DeliverablesOverviewHelpPage() {
       ]}
     >
       <p>
-        The show overview includes a <strong className="text-[#f1f0f0]">deliverables matrix</strong>{" "}
+        The show overview includes a <strong className="text-[#F5F0E8]">deliverables matrix</strong>{" "}
         — rows are episodes, columns are package types (VFX sheet, sound turnover,
         color turnover, etc.).
       </p>

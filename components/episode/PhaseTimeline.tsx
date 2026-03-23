@@ -92,7 +92,7 @@ export function PhaseTimeline({
       const c = latestCutForType(cuts, cutType);
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           {c ? (
             <p>
               {c.version_name} ·{" "}
@@ -105,7 +105,7 @@ export function PhaseTimeline({
             <p>No cut logged for this phase yet.</p>
           )}
           {!done && !c && (
-            <p className="text-[#5f5e70]">Expected: Not scheduled</p>
+            <p className="text-[#5a5040]">Expected: Not scheduled</p>
           )}
         </div>
       );
@@ -115,7 +115,7 @@ export function PhaseTimeline({
       const d = deliverables.find((x) => x.type === "color_turnover");
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           {d ? (
             <p>
               Latest turnover · {d.status} (version tracked in deliverables)
@@ -123,7 +123,7 @@ export function PhaseTimeline({
           ) : (
             <p>No color turnover yet.</p>
           )}
-          {!done && <p className="text-[#5f5e70]">Expected: Not scheduled</p>}
+          {!done && <p className="text-[#5a5040]">Expected: Not scheduled</p>}
         </div>
       );
     }
@@ -132,7 +132,7 @@ export function PhaseTimeline({
       const d = deliverables.find((x) => x.type === "sound_turnover");
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           {d ? (
             <p>
               Latest turnover · {d.status} (version tracked in deliverables)
@@ -140,7 +140,7 @@ export function PhaseTimeline({
           ) : (
             <p>No sound turnover yet.</p>
           )}
-          {!done && <p className="text-[#5f5e70]">Expected: Not scheduled</p>}
+          {!done && <p className="text-[#5a5040]">Expected: Not scheduled</p>}
         </div>
       );
     }
@@ -148,12 +148,12 @@ export function PhaseTimeline({
     if (key === "vfx_finals") {
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           <p>
             Approved {vfxApproved} / {vfxTotal || "0"} shots
           </p>
           {vfxTotal === 0 && (
-            <p className="text-[#5f5e70]">
+            <p className="text-[#5a5040]">
               No VFX shots yet — generate a VFX sheet or add shots to track
               finals here.
             </p>
@@ -165,7 +165,7 @@ export function PhaseTimeline({
     if (key === "shooting") {
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           <p>Episode status: {episodeStatus}</p>
         </div>
       );
@@ -174,10 +174,10 @@ export function PhaseTimeline({
     if (key === "delivery") {
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           {deliveryDate && <p>Target: {deliveryDate}</p>}
           {!deliveryDate && (
-            <p className="text-[#5f5e70]">Expected: Not scheduled</p>
+            <p className="text-[#5a5040]">Expected: Not scheduled</p>
           )}
         </div>
       );
@@ -186,10 +186,10 @@ export function PhaseTimeline({
     if (key === "picture_lock") {
       return (
         <div className="space-y-1 text-[11px] text-[#c4c4d4]">
-          <p className="font-medium text-[#f1f0f0]">{statusLabel}</p>
+          <p className="font-medium text-[#F5F0E8]">{statusLabel}</p>
           {pictureLockDate && <p>Date: {pictureLockDate}</p>}
           {!pictureLockDate && (
-            <p className="text-[#5f5e70]">Expected: Not scheduled</p>
+            <p className="text-[#5a5040]">Expected: Not scheduled</p>
           )}
         </div>
       );
@@ -203,8 +203,8 @@ export function PhaseTimeline({
   };
 
   return (
-    <div ref={rootRef} className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-5">
-      <h2 className="text-sm font-semibold text-[#f1f0f0]">Phase timeline</h2>
+    <div ref={rootRef} className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-5">
+      <h2 className="text-sm font-semibold text-[#F5F0E8]">Phase timeline</h2>
       <ol className="relative mt-4 space-y-3">
         {PHASE_ORDER.map(({ key, label }, idx) => {
           const done = completion[key];
@@ -223,23 +223,23 @@ export function PhaseTimeline({
                     done
                       ? "bg-emerald-500"
                       : showCurrent
-                        ? "bg-[#6c63ff] shadow-[0_0_0_6px_rgba(108,99,255,0.15)]"
-                        : "bg-[#2a2a3e]"
+                        ? "bg-[#D4A853] shadow-[0_0_0_6px_rgba(212,168,83,0.15)]"
+                        : "bg-[#2a2a2a]"
                   }`}
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="text-[#f1f0f0]">{label}</p>
+                  <p className="text-[#F5F0E8]">{label}</p>
                   {key === "picture_lock" && pictureLockDate && (
-                    <p className="text-xs text-[#5f5e70]">{pictureLockDate}</p>
+                    <p className="text-xs text-[#5a5040]">{pictureLockDate}</p>
                   )}
                   {key === "delivery" && deliveryDate && (
-                    <p className="text-xs text-[#5f5e70]">{deliveryDate}</p>
+                    <p className="text-xs text-[#5a5040]">{deliveryDate}</p>
                   )}
                 </div>
               </button>
               {open === key && (
-                <div className="absolute left-0 top-full z-20 mt-1 w-[min(100%,280px)] rounded-lg border border-[#2a2a3e] bg-[#0a0a12] p-3 shadow-xl">
-                  <p className="text-xs font-semibold text-[#f1f0f0]">{label}</p>
+                <div className="absolute left-0 top-full z-20 mt-1 w-[min(100%,280px)] rounded-lg border border-[#2a2a2a] bg-[#080808] p-3 shadow-xl">
+                  <p className="text-xs font-semibold text-[#F5F0E8]">{label}</p>
                   <div className="mt-2">{popoverBody(key)}</div>
                 </div>
               )}

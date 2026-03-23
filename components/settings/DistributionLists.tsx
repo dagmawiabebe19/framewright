@@ -31,20 +31,20 @@ function EmailListEditor({
   return (
     <div className="space-y-2">
       <div>
-        <p className="text-sm font-medium text-[#f1f0f0]">{label}</p>
-        <p className="text-xs text-[#5f5e70]">{description}</p>
+        <p className="text-sm font-medium text-[#F5F0E8]">{label}</p>
+        <p className="text-xs text-[#5a5040]">{description}</p>
       </div>
-      <div className="flex min-h-[40px] flex-wrap gap-2 rounded-lg border border-[#2a2a3e] bg-[#0a0a12] p-2">
+      <div className="flex min-h-[40px] flex-wrap gap-2 rounded-lg border border-[#2a2a2a] bg-[#080808] p-2">
         {emails.map((e) => (
           <span
             key={e}
-            className="inline-flex items-center gap-1 rounded-full bg-[#1a1a2e] px-2 py-0.5 text-[11px] text-[#f1f0f0]"
+            className="inline-flex items-center gap-1 rounded-full bg-[#1a1a1a] px-2 py-0.5 text-[11px] text-[#F5F0E8]"
           >
             {e}
             <button
               type="button"
               disabled={disabled}
-              className="text-[#9998b0] hover:text-red-300 disabled:opacity-40"
+              className="text-[#A09880] hover:text-red-300 disabled:opacity-40"
               onClick={() => onChange(emails.filter((x) => x !== e))}
               aria-label={`Remove ${e}`}
             >
@@ -65,13 +65,13 @@ function EmailListEditor({
             }
           }}
           placeholder="email@company.com"
-          className="flex-1 rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-1.5 text-sm text-[#f1f0f0] disabled:opacity-50"
+          className="flex-1 rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-1.5 text-sm text-[#F5F0E8] disabled:opacity-50"
         />
         <button
           type="button"
           disabled={disabled}
           onClick={add}
-          className="rounded-lg border border-[#6c63ff]/40 px-3 py-1.5 text-sm text-[#6c63ff] disabled:opacity-40"
+          className="rounded-lg border border-[#D4A853]/40 px-3 py-1.5 text-sm text-[#D4A853] disabled:opacity-40"
         >
           Add email
         </button>
@@ -112,11 +112,11 @@ export function DistributionLists({
   }
 
   return (
-    <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
-      <h2 className="text-lg font-semibold text-[#f1f0f0]">
+    <section className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
+      <h2 className="text-lg font-semibold text-[#F5F0E8]">
         Distribution lists
       </h2>
-      <p className="mt-1 text-sm text-[#5f5e70]">
+      <p className="mt-1 text-sm text-[#5a5040]">
         Who receives automated emails for this show.
       </p>
       {error && (
@@ -137,12 +137,12 @@ export function DistributionLists({
             type="button"
             disabled={savingKey !== null}
             onClick={() => void save("dailies")}
-            className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+            className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
           >
             {savingKey === "dailies" ? "Saving…" : "Save dailies list"}
           </button>
         </div>
-        <div className="space-y-3 border-t border-[#2a2a3e] pt-8">
+        <div className="space-y-3 border-t border-[#2a2a2a] pt-8">
           <EmailListEditor
             label="Cut distribution"
             description="Notified when a new cut is logged (future automation)."
@@ -154,12 +154,12 @@ export function DistributionLists({
             type="button"
             disabled={savingKey !== null}
             onClick={() => void save("cuts")}
-            className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+            className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
           >
             {savingKey === "cuts" ? "Saving…" : "Save cut list"}
           </button>
         </div>
-        <div className="space-y-3 border-t border-[#2a2a3e] pt-8">
+        <div className="space-y-3 border-t border-[#2a2a2a] pt-8">
           <EmailListEditor
             label="Deadline alerts"
             description="Receives picture lock and delivery warning emails."
@@ -171,7 +171,7 @@ export function DistributionLists({
             type="button"
             disabled={savingKey !== null}
             onClick={() => void save("deadlines")}
-            className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+            className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
           >
             {savingKey === "deadlines" ? "Saving…" : "Save deadline list"}
           </button>

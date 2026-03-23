@@ -57,7 +57,7 @@ export async function POST(request: Request) {
   const keyAnthropic = process.env.ANTHROPIC_API_KEY;
   if (!keyAnthropic) {
     return new Response(
-      "AI is not configured (ANTHROPIC_API_KEY). Ask your admin to add the key.",
+      "AI assistant requires an API key. Add ANTHROPIC_API_KEY in Vercel environment variables.",
       {
         status: 503,
         headers: { "Content-Type": "text/plain; charset=utf-8" },

@@ -38,17 +38,17 @@ export default async function EpisodesIndexPage({
     <div className="px-4 py-8 md:px-8">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             Production
           </p>
-          <h1 className="mt-1 text-2xl font-semibold text-[#f1f0f0]">Episodes</h1>
-          <p className="mt-2 text-sm text-[#9998b0]">
+          <h1 className="mt-1 text-2xl font-semibold text-[#F5F0E8]">Episodes</h1>
+          <p className="mt-2 text-sm text-[#A09880]">
             {show.name} — add editorial episodes as they come online.
           </p>
         </div>
         <Link
           href={`/${org.slug}/${params.showSlug}`}
-          className="text-sm text-[#6c63ff] hover:underline"
+          className="text-sm text-[#D4A853] hover:underline"
         >
           Back to overview
         </Link>
@@ -60,21 +60,21 @@ export default async function EpisodesIndexPage({
             <Link
               key={ep.id}
               href={`/${org.slug}/${params.showSlug}/episodes/${ep.id}`}
-              className="flex items-center justify-between rounded-2xl border border-[#2a2a3e] bg-[#12121e] px-4 py-4 transition hover:border-[#6c63ff]/35"
+              className="flex items-center justify-between rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] px-4 py-4 transition hover:border-[#D4A853]/35"
             >
               <div>
-                <p className="font-mono text-sm text-[#f1f0f0]">
+                <p className="font-mono text-sm text-[#F5F0E8]">
                   {ep.episode_number}
                 </p>
-                <p className="text-sm text-[#9998b0]">{ep.title}</p>
+                <p className="text-sm text-[#A09880]">{ep.title}</p>
               </div>
-              <span className="text-xs uppercase tracking-wide text-[#5f5e70]">
+              <span className="text-xs uppercase tracking-wide text-[#5a5040]">
                 {ep.status}
               </span>
             </Link>
           ))}
           {(episodes ?? []).length === 0 && (
-            <p className="text-sm text-[#9998b0]">
+            <p className="text-sm text-[#A09880]">
               No episodes yet — create the first card on the right.
             </p>
           )}

@@ -22,16 +22,16 @@ export default function GettingStartedHelpPage() {
         </li>
         <li>
           Your first episode is created during onboarding. Add more from{" "}
-          <strong className="text-[#f1f0f0]">Episodes</strong> in the sidebar.
+          <strong className="text-[#F5F0E8]">Episodes</strong> in the sidebar.
         </li>
         <li>
           Invite collaborators from{" "}
-          <strong className="text-[#f1f0f0]">Settings → Team</strong>. They get
+          <strong className="text-[#F5F0E8]">Settings → Team</strong>. They get
           a magic link by email.
         </li>
         <li>
           Set picture lock and delivery targets per episode in{" "}
-          <strong className="text-[#f1f0f0]">Settings → Show info</strong>, or
+          <strong className="text-[#F5F0E8]">Settings → Show info</strong>, or
           from the episode hub quick stats when that control is available.
         </li>
       </ol>

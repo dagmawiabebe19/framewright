@@ -172,19 +172,19 @@ export function AddCutModal({
           exit={{ opacity: 0 }}
         >
           <motion.div
-            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6 shadow-xl"
+            className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6 shadow-xl"
             initial={{ y: 16, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 16, opacity: 0 }}
           >
-            <h2 className="text-lg font-semibold text-[#f1f0f0]">Log new cut</h2>
+            <h2 className="text-lg font-semibold text-[#F5F0E8]">Log new cut</h2>
             <div className="mt-4 space-y-4 text-sm">
               <label className="block">
-                <span className="text-[#9998b0]">Cut type</span>
+                <span className="text-[#A09880]">Cut type</span>
                 <select
                   value={cutType}
                   onChange={(e) => setCutType(e.target.value as CutType)}
-                  className="mt-1 w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+                  className="mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
                 >
                   {CUT_TYPE_OPTIONS.map((o) => (
                     <option key={o.value} value={o.value}>
@@ -194,46 +194,46 @@ export function AddCutModal({
                 </select>
               </label>
               <label className="block">
-                <span className="text-[#9998b0]">Version name</span>
+                <span className="text-[#A09880]">Version name</span>
                 <input
                   value={versionName}
                   onChange={(e) => setVersionName(e.target.value)}
-                  className="mt-1 w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+                  className="mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
                 />
               </label>
               <label className="block">
-                <span className="text-[#9998b0]">Duration (TC)</span>
+                <span className="text-[#A09880]">Duration (TC)</span>
                 <input
                   value={durationTc}
                   onChange={(e) => setDurationTc(e.target.value)}
                   onBlur={onBlurTc}
                   placeholder="01:42:18:00"
-                  className="mt-1 w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 font-mono text-[#f1f0f0]"
+                  className="mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 font-mono text-[#F5F0E8]"
                 />
                 {tcError && (
                   <p className="mt-1 text-xs text-red-400">{tcError}</p>
                 )}
                 {totalFrames != null && !tcError && (
-                  <p className="mt-1 text-xs text-[#5f5e70]">
+                  <p className="mt-1 text-xs text-[#5a5040]">
                     ≈ {totalFrames.toFixed(2)} frames @ {fps} fps
                   </p>
                 )}
               </label>
               <label className="block">
-                <span className="text-[#9998b0]">Notes (optional)</span>
+                <span className="text-[#A09880]">Notes (optional)</span>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
                   rows={3}
-                  className="mt-1 w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+                  className="mt-1 w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
                 />
               </label>
               <label className="block">
-                <span className="text-[#9998b0]">Reference file (optional)</span>
+                <span className="text-[#A09880]">Reference file (optional)</span>
                 <input
                   type="file"
                   onChange={(e) => setFile(e.target.files?.[0] ?? null)}
-                  className="mt-1 w-full text-xs text-[#9998b0]"
+                  className="mt-1 w-full text-xs text-[#A09880]"
                 />
               </label>
             </div>
@@ -241,7 +241,7 @@ export function AddCutModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#9998b0]"
+                className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#A09880]"
               >
                 Cancel
               </button>
@@ -249,7 +249,7 @@ export function AddCutModal({
                 type="button"
                 disabled={submitting}
                 onClick={() => void submit()}
-                className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
+                className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-50"
               >
                 {submitting ? "Saving…" : "Save cut"}
               </button>

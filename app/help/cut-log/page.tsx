@@ -16,15 +16,15 @@ export default function CutLogHelpPage() {
       </p>
       <ol className="list-decimal space-y-4 pl-5">
         <li>
-          Choose the <strong className="text-[#f1f0f0]">cut type</strong> that
+          Choose the <strong className="text-[#F5F0E8]">cut type</strong> that
           matches your milestone (e.g. Director&apos;s cut, Picture lock).
         </li>
         <li>
-          Confirm the <strong className="text-[#f1f0f0]">version name</strong>{" "}
+          Confirm the <strong className="text-[#F5F0E8]">version name</strong>{" "}
           (FRAMEWRIGHT suggests the next version for that type).
         </li>
         <li>
-          Enter <strong className="text-[#f1f0f0]">duration timecode</strong>{" "}
+          Enter <strong className="text-[#F5F0E8]">duration timecode</strong>{" "}
           as <code className="font-mono text-[#c4b5fd]">HH:MM:SS:FF</code> with
           two digits in each field (example:{" "}
           <code className="font-mono text-[#c4b5fd]">01:42:18:00</code>). Leave

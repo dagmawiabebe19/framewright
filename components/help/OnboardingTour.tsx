@@ -181,7 +181,7 @@ export function OnboardingTour({
 
       {hole && (
         <div
-          className="pointer-events-none fixed z-[201] rounded-lg ring-2 ring-[#6c63ff] shadow-[0_0_0_9999px_rgba(0,0,0,0.58)]"
+          className="pointer-events-none fixed z-[201] rounded-lg ring-2 ring-[#D4A853] shadow-[0_0_0_9999px_rgba(0,0,0,0.58)]"
           style={{
             top: hole.top,
             left: hole.left,
@@ -192,7 +192,7 @@ export function OnboardingTour({
       )}
 
       <div
-        className="fixed z-[202] w-[min(calc(100vw-32px),320px)] rounded-xl border border-[#6c63ff] bg-[#1a1a2e] p-5 shadow-[0_24px_48px_rgba(0,0,0,0.85)]"
+        className="fixed z-[202] w-[min(calc(100vw-32px),320px)] rounded-xl border border-[#D4A853] bg-[#1a1a1a] p-5 shadow-[0_24px_48px_rgba(0,0,0,0.85)]"
         style={{ top: cardPos.top, left: cardPos.left }}
         role="dialog"
         aria-labelledby="fw-tour-title"
@@ -200,18 +200,18 @@ export function OnboardingTour({
       >
         <h2
           id="fw-tour-title"
-          className="text-base font-medium leading-snug text-[#f1f0f0]"
+          className="text-base font-medium leading-snug text-[#F5F0E8]"
         >
           {s.title}
         </h2>
-        <p className="mt-3 text-sm leading-relaxed text-[#9998b0]">{s.body}</p>
+        <p className="mt-3 text-sm leading-relaxed text-[#A09880]">{s.body}</p>
 
         <div className="mt-5 flex items-center justify-center gap-2">
           {STEPS.map((_, i) => (
             <span
               key={_.id}
               className={`h-2 w-2 rounded-full ${
-                i === step ? "bg-[#6c63ff]" : "bg-[#2a2a3e]"
+                i === step ? "bg-[#D4A853]" : "bg-[#2a2a2a]"
               }`}
             />
           ))}
@@ -221,7 +221,7 @@ export function OnboardingTour({
           <button
             type="button"
             onClick={finish}
-            className="text-sm text-[#5f5e70] hover:text-[#9998b0]"
+            className="text-sm text-[#5a5040] hover:text-[#A09880]"
           >
             Skip tour
           </button>
@@ -230,7 +230,7 @@ export function OnboardingTour({
               <button
                 type="button"
                 onClick={() => setStep((x) => Math.max(0, x - 1))}
-                className="rounded-lg border border-[#2a2a3e] px-3 py-2 text-sm text-[#f1f0f0] hover:border-[#6c63ff]/50"
+                className="rounded-lg border border-[#2a2a2a] px-3 py-2 text-sm text-[#F5F0E8] hover:border-[#D4A853]/50"
               >
                 Back
               </button>
@@ -245,7 +245,7 @@ export function OnboardingTour({
                   setStep((x) => x + 1);
                 }
               }}
-              className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white hover:bg-[#7b73ff]"
+              className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white hover:bg-[#E0B86A]"
             >
               {isLast
                 ? s.primaryLabel ?? "Done"

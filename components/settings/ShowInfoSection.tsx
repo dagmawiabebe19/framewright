@@ -126,25 +126,25 @@ export function ShowInfoSection({
     frameRate && !FRAME_RATES.includes(frameRate) ? frameRate : "";
 
   return (
-    <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
-      <h2 className="text-lg font-semibold text-[#f1f0f0]">Show info</h2>
-      <p className="mt-1 text-sm text-[#5f5e70]">
+    <section className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6">
+      <h2 className="text-lg font-semibold text-[#F5F0E8]">Show info</h2>
+      <p className="mt-1 text-sm text-[#5a5040]">
         Show identity, frame rate, and milestone dates by episode. Save each
         section when you are done editing.
       </p>
 
-      <div className="mt-6 space-y-4 border-b border-[#2a2a3e] pb-8">
-        <h3 className="text-sm font-medium text-[#f1f0f0]">Show details</h3>
+      <div className="mt-6 space-y-4 border-b border-[#2a2a2a] pb-8">
+        <h3 className="text-sm font-medium text-[#F5F0E8]">Show details</h3>
         <label className="block space-y-1">
-          <span className="text-xs text-[#9998b0]">Show name</span>
+          <span className="text-xs text-[#A09880]">Show name</span>
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+            className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
           />
         </label>
         <label className="block space-y-1">
-          <span className="text-xs text-[#9998b0]">Frame rate</span>
+          <span className="text-xs text-[#A09880]">Frame rate</span>
           <select
             value={useCustomFrameRate ? "__custom__" : frameRate}
             onChange={(e) => {
@@ -156,7 +156,7 @@ export function ShowInfoSection({
                 setFrameRate(v);
               }
             }}
-            className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+            className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
           >
             {FRAME_RATES.map((r) => (
               <option key={r} value={r}>
@@ -168,12 +168,12 @@ export function ShowInfoSection({
         </label>
         {useCustomFrameRate && (
           <label className="block space-y-1">
-            <span className="text-xs text-[#9998b0]">Custom frame rate</span>
+            <span className="text-xs text-[#A09880]">Custom frame rate</span>
             <input
               value={frameRate}
               onChange={(e) => setFrameRate(e.target.value)}
               placeholder="e.g. 23.976"
-              className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-sm text-[#f1f0f0]"
+              className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-sm text-[#F5F0E8]"
             />
           </label>
         )}
@@ -186,24 +186,24 @@ export function ShowInfoSection({
           type="button"
           disabled={showSaving}
           onClick={() => void saveShow()}
-          className="rounded-lg bg-[#6c63ff] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
+          className="rounded-lg bg-[#D4A853] px-4 py-2 text-sm font-semibold text-white disabled:opacity-40"
         >
           {showSaving ? "Saving…" : "Save show details"}
         </button>
       </div>
 
       <div className="mt-8">
-        <h3 className="text-sm font-medium text-[#f1f0f0]">
+        <h3 className="text-sm font-medium text-[#F5F0E8]">
           Episode milestone dates
         </h3>
-        <p className="mt-1 text-xs text-[#5f5e70]">
+        <p className="mt-1 text-xs text-[#5a5040]">
           Picture lock and delivery targets per episode.
         </p>
-        <p className="mt-1 text-xs text-[#5f5e70]">
+        <p className="mt-1 text-xs text-[#5a5040]">
           Dates apply to each episode independently.
         </p>
         {episodes.length === 0 ? (
-          <p className="mt-4 text-sm text-[#9998b0]">
+          <p className="mt-4 text-sm text-[#A09880]">
             No episodes yet. Add episodes from the Episodes hub.
           </p>
         ) : (
@@ -214,17 +214,17 @@ export function ShowInfoSection({
               return (
                 <li
                   key={ep.id}
-                  className="rounded-xl border border-[#2a2a3e] bg-[#0a0a12] p-4"
+                  className="rounded-xl border border-[#2a2a2a] bg-[#080808] p-4"
                 >
-                  <p className="text-sm font-medium text-[#f1f0f0]">
+                  <p className="text-sm font-medium text-[#F5F0E8]">
                     Ep {ep.episode_number}
-                    <span className="ml-2 font-normal text-[#9998b0]">
+                    <span className="ml-2 font-normal text-[#A09880]">
                       {ep.title}
                     </span>
                   </p>
                   <div className="mt-3 grid gap-3 sm:grid-cols-2">
                     <label className="block space-y-1">
-                      <span className="text-[11px] text-[#5f5e70]">
+                      <span className="text-[11px] text-[#5a5040]">
                         Picture lock
                       </span>
                       <input
@@ -239,11 +239,11 @@ export function ShowInfoSection({
                             },
                           }))
                         }
-                        className="w-full rounded-lg border border-[#2a2a3e] bg-[#12121e] px-3 py-2 text-sm text-[#f1f0f0]"
+                        className="w-full rounded-lg border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-2 text-sm text-[#F5F0E8]"
                       />
                     </label>
                     <label className="block space-y-1">
-                      <span className="text-[11px] text-[#5f5e70]">
+                      <span className="text-[11px] text-[#5a5040]">
                         Delivery
                       </span>
                       <input
@@ -258,7 +258,7 @@ export function ShowInfoSection({
                             },
                           }))
                         }
-                        className="w-full rounded-lg border border-[#2a2a3e] bg-[#12121e] px-3 py-2 text-sm text-[#f1f0f0]"
+                        className="w-full rounded-lg border border-[#2a2a2a] bg-[#0f0f0f] px-3 py-2 text-sm text-[#F5F0E8]"
                       />
                     </label>
                   </div>
@@ -269,7 +269,7 @@ export function ShowInfoSection({
                     type="button"
                     disabled={row.saving}
                     onClick={() => void saveEpisode(ep.id)}
-                    className="mt-3 rounded-lg border border-[#2a2a3e] px-3 py-1.5 text-xs font-medium text-[#6c63ff] disabled:opacity-40"
+                    className="mt-3 rounded-lg border border-[#2a2a2a] px-3 py-1.5 text-xs font-medium text-[#D4A853] disabled:opacity-40"
                   >
                     {row.saving ? "Saving…" : "Save episode dates"}
                   </button>

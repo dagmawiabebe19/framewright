@@ -132,15 +132,15 @@ export default function OnboardingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a12] px-4 py-12">
+    <div className="min-h-screen bg-[#080808] px-4 py-12">
       <div className="mx-auto max-w-xl">
-        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-[#6c63ff]">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-[#D4A853]">
           FRAMEWRIGHT
         </p>
-        <h1 className="mt-2 text-center text-2xl font-semibold text-[#f1f0f0]">
+        <h1 className="mt-2 text-center text-2xl font-semibold text-[#F5F0E8]">
           Welcome — let us set up your production
         </h1>
-        <p className="mt-2 text-center text-sm text-[#9998b0]">
+        <p className="mt-2 text-center text-sm text-[#A09880]">
           Three steps. You can invite the room after this.
         </p>
 
@@ -149,7 +149,7 @@ export default function OnboardingPage() {
             <div
               key={n}
               className={`h-1.5 w-10 rounded-full transition ${
-                step >= n ? "bg-[#6c63ff]" : "bg-[#2a2a3e]"
+                step >= n ? "bg-[#D4A853]" : "bg-[#2a2a2a]"
               }`}
             />
           ))}
@@ -163,30 +163,30 @@ export default function OnboardingPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -12 }}
               transition={{ duration: 0.2 }}
-              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6"
+              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6"
             >
-              <h2 className="text-lg font-semibold text-[#f1f0f0]">
+              <h2 className="text-lg font-semibold text-[#F5F0E8]">
                 Create your organization
               </h2>
               <label className="block space-y-2 text-sm">
-                <span className="text-[#9998b0]">Company or production entity</span>
+                <span className="text-[#A09880]">Company or production entity</span>
                 <input
                   value={orgName}
                   onChange={(e) => setOrgName(e.target.value)}
                   placeholder="Walia Studios"
-                  className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none focus:border-[#6c63ff] focus:ring-2 focus:ring-[#6c63ff]/25"
+                  className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8] outline-none focus:border-[#D4A853] focus:ring-2 focus:ring-[#D4A853]/25"
                 />
               </label>
-              <p className="text-xs text-[#5f5e70]">
+              <p className="text-xs text-[#5a5040]">
                 URL slug:{" "}
-                <span className="font-mono text-[#9998b0]">{orgSlugPreview}</span>
+                <span className="font-mono text-[#A09880]">{orgSlugPreview}</span>
               </p>
               <label className="block space-y-2 text-sm">
-                <span className="text-[#9998b0]">Your role</span>
+                <span className="text-[#A09880]">Your role</span>
                 <select
                   value={memberRole}
                   onChange={(e) => setMemberRole(e.target.value)}
-                  className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none focus:border-[#6c63ff]"
+                  className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8] outline-none focus:border-[#D4A853]"
                 >
                   {ROLES.map((r) => (
                     <option key={r.value} value={r.value}>
@@ -205,45 +205,45 @@ export default function OnboardingPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -12 }}
               transition={{ duration: 0.2 }}
-              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6"
+              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6"
             >
-              <h2 className="text-lg font-semibold text-[#f1f0f0]">
+              <h2 className="text-lg font-semibold text-[#F5F0E8]">
                 Create your first show
               </h2>
               <label className="block space-y-2 text-sm">
-                <span className="text-[#9998b0]">Show title</span>
+                <span className="text-[#A09880]">Show title</span>
                 <input
                   value={showName}
                   onChange={(e) => setShowName(e.target.value)}
                   placeholder="The Bear S03"
-                  className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none focus:border-[#6c63ff]"
+                  className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8] outline-none focus:border-[#D4A853]"
                 />
               </label>
-              <p className="text-xs text-[#5f5e70]">
+              <p className="text-xs text-[#5a5040]">
                 Four-character show code:{" "}
-                <span className="font-mono text-[#9998b0]">{showCodePreview}</span>
+                <span className="font-mono text-[#A09880]">{showCodePreview}</span>
               </p>
 
               <div className="space-y-2 text-sm">
-                <span className="text-[#9998b0]">Format</span>
+                <span className="text-[#A09880]">Format</span>
                 <div className="flex flex-wrap gap-4">
-                  <label className="flex cursor-pointer items-center gap-2 text-[#f1f0f0]">
+                  <label className="flex cursor-pointer items-center gap-2 text-[#F5F0E8]">
                     <input
                       type="radio"
                       name="pt"
                       checked={projectType === "episodic"}
                       onChange={() => setProjectType("episodic")}
-                      className="accent-[#6c63ff]"
+                      className="accent-[#D4A853]"
                     />
                     Episodic television
                   </label>
-                  <label className="flex cursor-pointer items-center gap-2 text-[#f1f0f0]">
+                  <label className="flex cursor-pointer items-center gap-2 text-[#F5F0E8]">
                     <input
                       type="radio"
                       name="pt"
                       checked={projectType === "feature"}
                       onChange={() => setProjectType("feature")}
-                      className="accent-[#6c63ff]"
+                      className="accent-[#D4A853]"
                     />
                     Feature film
                   </label>
@@ -253,7 +253,7 @@ export default function OnboardingPage() {
               {projectType === "episodic" && (
                 <div className="grid gap-4 sm:grid-cols-2">
                   <label className="block space-y-2 text-sm">
-                    <span className="text-[#9998b0]">Season number</span>
+                    <span className="text-[#A09880]">Season number</span>
                     <input
                       type="number"
                       min={1}
@@ -261,11 +261,11 @@ export default function OnboardingPage() {
                       onChange={(e) =>
                         setSeasonNumber(Math.max(1, Number(e.target.value) || 1))
                       }
-                      className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0]"
+                      className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8]"
                     />
                   </label>
                   <label className="block space-y-2 text-sm">
-                    <span className="text-[#9998b0]">Episode count (season order)</span>
+                    <span className="text-[#A09880]">Episode count (season order)</span>
                     <input
                       type="number"
                       min={1}
@@ -273,18 +273,18 @@ export default function OnboardingPage() {
                       onChange={(e) =>
                         setTotalEpisodes(Math.max(1, Number(e.target.value) || 1))
                       }
-                      className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0]"
+                      className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8]"
                     />
                   </label>
                 </div>
               )}
 
               <label className="block space-y-2 text-sm">
-                <span className="text-[#9998b0]">Master frame rate</span>
+                <span className="text-[#A09880]">Master frame rate</span>
                 <select
                   value={frameRate}
                   onChange={(e) => setFrameRate(e.target.value)}
-                  className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0]"
+                  className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2.5 text-[#F5F0E8]"
                 >
                   {FRAME_RATES.map((f) => (
                     <option key={f} value={f}>
@@ -303,12 +303,12 @@ export default function OnboardingPage() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -12 }}
               transition={{ duration: 0.2 }}
-              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6"
+              className="mt-10 space-y-6 rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-6"
             >
-              <h2 className="text-lg font-semibold text-[#f1f0f0]">
+              <h2 className="text-lg font-semibold text-[#F5F0E8]">
                 Invite your team
               </h2>
-              <p className="text-sm text-[#9998b0]">
+              <p className="text-sm text-[#A09880]">
                 We will email a magic link. They sign in with the same address you
                 enter here.
               </p>
@@ -320,7 +320,7 @@ export default function OnboardingPage() {
                     className="grid gap-2 sm:grid-cols-[1fr_140px_auto] sm:items-end"
                   >
                     <label className="block space-y-1 text-sm">
-                      <span className="text-[#9998b0]">Email</span>
+                      <span className="text-[#A09880]">Email</span>
                       <input
                         value={row.email}
                         onChange={(e) => {
@@ -329,11 +329,11 @@ export default function OnboardingPage() {
                           setInvites(next);
                         }}
                         placeholder="editor@facility.com"
-                        className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+                        className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
                       />
                     </label>
                     <label className="block space-y-1 text-sm">
-                      <span className="text-[#9998b0]">Role</span>
+                      <span className="text-[#A09880]">Role</span>
                       <select
                         value={row.role}
                         onChange={(e) => {
@@ -341,7 +341,7 @@ export default function OnboardingPage() {
                           next[idx] = { ...next[idx], role: e.target.value };
                           setInvites(next);
                         }}
-                        className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2 text-[#f1f0f0]"
+                        className="w-full rounded-lg border border-[#2a2a2a] bg-[#080808] px-3 py-2 text-[#F5F0E8]"
                       >
                         {ROLES.map((r) => (
                           <option key={r.value} value={r.value}>
@@ -355,7 +355,7 @@ export default function OnboardingPage() {
                       onClick={() =>
                         setInvites((prev) => prev.filter((_, i) => i !== idx))
                       }
-                      className="rounded-lg border border-[#2a2a3e] px-3 py-2 text-sm text-[#9998b0] hover:bg-[#1a1a2e]"
+                      className="rounded-lg border border-[#2a2a2a] px-3 py-2 text-sm text-[#A09880] hover:bg-[#1a1a1a]"
                     >
                       Remove
                     </button>
@@ -368,7 +368,7 @@ export default function OnboardingPage() {
                 onClick={() =>
                   setInvites((prev) => [...prev, { email: "", role: "editor" }])
                 }
-                className="text-sm font-medium text-[#6c63ff] hover:underline"
+                className="text-sm font-medium text-[#D4A853] hover:underline"
               >
                 Add another person
               </button>
@@ -387,14 +387,14 @@ export default function OnboardingPage() {
             <button
               type="button"
               onClick={() => setStep((s) => Math.max(1, s - 1))}
-              className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm text-[#f1f0f0] hover:bg-[#1a1a2e]"
+              className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm text-[#F5F0E8] hover:bg-[#1a1a1a]"
             >
               Back
             </button>
           ) : (
             <Link
               href="/auth"
-              className="text-sm text-[#5f5e70] hover:text-[#9998b0]"
+              className="text-sm text-[#5a5040] hover:text-[#A09880]"
             >
               Cancel
             </Link>
@@ -405,7 +405,7 @@ export default function OnboardingPage() {
               <button
                 type="button"
                 onClick={goNext}
-                className="rounded-lg bg-[#6c63ff] px-5 py-2 text-sm font-semibold text-white hover:bg-[#7b73ff]"
+                className="rounded-lg bg-[#D4A853] px-5 py-2 text-sm font-semibold text-white hover:bg-[#E0B86A]"
               >
                 Continue
               </button>
@@ -416,7 +416,7 @@ export default function OnboardingPage() {
                   type="button"
                   disabled={submitting}
                   onClick={() => submit(true)}
-                  className="rounded-lg border border-[#2a2a3e] px-4 py-2 text-sm font-medium text-[#f1f0f0] hover:bg-[#1a1a2e] disabled:opacity-50"
+                  className="rounded-lg border border-[#2a2a2a] px-4 py-2 text-sm font-medium text-[#F5F0E8] hover:bg-[#1a1a1a] disabled:opacity-50"
                 >
                   Skip for now
                 </button>
@@ -424,7 +424,7 @@ export default function OnboardingPage() {
                   type="button"
                   disabled={submitting}
                   onClick={() => submit(false)}
-                  className="rounded-lg bg-[#6c63ff] px-5 py-2 text-sm font-semibold text-white hover:bg-[#7b73ff] disabled:opacity-50"
+                  className="rounded-lg bg-[#D4A853] px-5 py-2 text-sm font-semibold text-white hover:bg-[#E0B86A] disabled:opacity-50"
                 >
                   {submitting ? "Saving…" : "Finish and open dashboard"}
                 </button>

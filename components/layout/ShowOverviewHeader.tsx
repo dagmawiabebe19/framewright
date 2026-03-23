@@ -27,16 +27,16 @@ export function ShowOverviewHeader({
   const base = `/${orgSlug}/${showSlug}`;
 
   return (
-    <header className="sticky top-0 z-20 border-b border-[#2a2a3e] bg-[#0a0a12]/90 px-4 py-4 backdrop-blur md:px-8">
+    <header className="sticky top-0 z-20 border-b border-[#2a2a2a] bg-[#080808]/90 px-4 py-4 backdrop-blur md:px-8">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="min-w-0">
-          <p className="truncate text-lg font-semibold text-[#f1f0f0] md:text-xl">
+          <p className="truncate text-lg font-semibold text-[#F5F0E8] md:text-xl">
             {showName}
           </p>
           <div className="mt-2 flex flex-wrap items-center gap-2">
-            <label className="text-xs text-[#5f5e70]">Episode</label>
+            <label className="text-xs text-[#5a5040]">Episode</label>
             <select
-              className="max-w-[min(100%,280px)] rounded-lg border border-[#2a2a3e] bg-[#12121e] px-2 py-1.5 text-sm text-[#f1f0f0] outline-none focus:border-[#6c63ff]"
+              className="max-w-[min(100%,280px)] rounded-lg border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-1.5 text-sm text-[#F5F0E8] outline-none focus:border-[#D4A853]"
               value=""
               onChange={(e) => {
                 const id = e.target.value;
@@ -52,19 +52,19 @@ export function ShowOverviewHeader({
             </select>
             <Link
               href={`${base}/episodes`}
-              className="rounded-lg border border-[#2a2a3e] px-3 py-1.5 text-xs font-medium text-[#6c63ff] transition hover:bg-[#12121e]"
+              className="rounded-lg border border-[#2a2a2a] px-3 py-1.5 text-xs font-medium text-[#D4A853] transition hover:bg-[#0f0f0f]"
             >
               New episode
             </Link>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <span className="hidden max-w-[200px] truncate text-xs text-[#5f5e70] sm:inline">
+          <span className="hidden max-w-[200px] truncate text-xs text-[#5a5040] sm:inline">
             {userEmail}
           </span>
           <Link
             href="/dashboard"
-            className="text-xs text-[#9998b0] hover:text-[#f1f0f0]"
+            className="text-xs text-[#A09880] hover:text-[#F5F0E8]"
           >
             All shows
           </Link>

@@ -205,7 +205,7 @@ export function QuickStats({
 
   let lockLine: { text: string; tone: string } = {
     text: "No picture lock date set",
-    tone: "text-[#9998b0]",
+    tone: "text-[#A09880]",
   };
   if (episodeDates.picture_lock_date) {
     const d = new Date(episodeDates.picture_lock_date + "T12:00:00");
@@ -248,23 +248,23 @@ export function QuickStats({
   };
 
   return (
-    <div className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-5">
-      <h2 className="text-sm font-semibold text-[#f1f0f0]">Quick stats</h2>
+    <div className="rounded-2xl border border-[#2a2a2a] bg-[#0f0f0f] p-5">
+      <h2 className="text-sm font-semibold text-[#F5F0E8]">Quick stats</h2>
 
-      <div className="mt-4 space-y-4 text-sm text-[#9998b0]">
+      <div className="mt-4 space-y-4 text-sm text-[#A09880]">
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             VFX
           </p>
           <p className="mt-1">
-            <span className="font-mono text-[#f1f0f0]">{s.vfxTotal}</span>{" "}
+            <span className="font-mono text-[#F5F0E8]">{s.vfxTotal}</span>{" "}
             shots total ·{" "}
             <span className="font-mono text-emerald-400">{s.vfxApproved}</span>{" "}
             approved ({pct}%)
           </p>
           <div className="mt-2 h-1.5 w-full overflow-hidden rounded-full bg-[#1a1a24]">
             <div
-              className="h-full rounded-full bg-[#6c63ff] transition-[width] duration-[400ms] ease-out"
+              className="h-full rounded-full bg-[#D4A853] transition-[width] duration-[400ms] ease-out"
               style={{ width: `${pct}%` }}
             />
           </div>
@@ -275,11 +275,11 @@ export function QuickStats({
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             Dailies
           </p>
           <p className="mt-1">
-            <span className="font-mono text-[#f1f0f0]">{s.rollsTotal}</span>{" "}
+            <span className="font-mono text-[#F5F0E8]">{s.rollsTotal}</span>{" "}
             rolls ·{" "}
             <span className="font-mono text-emerald-400">
               {s.rollsConfirmed}
@@ -296,15 +296,15 @@ export function QuickStats({
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             Notes
           </p>
           {s.openNotes > 0 ? (
             <p className="mt-1 text-amber-300">
               Open notes:{" "}
-              <span className="font-mono text-[#f1f0f0]">{s.openNotes}</span>{" "}
+              <span className="font-mono text-[#F5F0E8]">{s.openNotes}</span>{" "}
               across{" "}
-              <span className="font-mono text-[#f1f0f0]">
+              <span className="font-mono text-[#F5F0E8]">
                 {s.cutVersionsWithOpenNotes}
               </span>{" "}
               cut versions
@@ -315,7 +315,7 @@ export function QuickStats({
         </div>
 
         <div>
-          <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          <p className="text-xs uppercase tracking-wider text-[#5a5040]">
             Picture lock
           </p>
           <p className={`mt-1 font-mono ${lockLine.tone}`}>{lockLine.text}</p>
@@ -323,29 +323,29 @@ export function QuickStats({
             <button
               type="button"
               onClick={() => setEditingDates(true)}
-              className="mt-1 text-[11px] text-[#6c63ff] hover:underline"
+              className="mt-1 text-[11px] text-[#D4A853] hover:underline"
             >
               Set date
             </button>
           )}
           {editingDates && (
-            <div className="mt-2 space-y-2 rounded-lg border border-[#2a2a3e] bg-[#0a0a12] p-3 text-[11px]">
-              <label className="block text-[#9998b0]">
+            <div className="mt-2 space-y-2 rounded-lg border border-[#2a2a2a] bg-[#080808] p-3 text-[11px]">
+              <label className="block text-[#A09880]">
                 Picture lock
                 <input
                   type="date"
                   value={draftLock}
                   onChange={(e) => setDraftLock(e.target.value)}
-                  className="mt-1 w-full rounded border border-[#2a2a3e] bg-[#12121e] px-2 py-1 text-[#f1f0f0]"
+                  className="mt-1 w-full rounded border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-1 text-[#F5F0E8]"
                 />
               </label>
-              <label className="block text-[#9998b0]">
+              <label className="block text-[#A09880]">
                 Delivery
                 <input
                   type="date"
                   value={draftDelivery}
                   onChange={(e) => setDraftDelivery(e.target.value)}
-                  className="mt-1 w-full rounded border border-[#2a2a3e] bg-[#12121e] px-2 py-1 text-[#f1f0f0]"
+                  className="mt-1 w-full rounded border border-[#2a2a2a] bg-[#0f0f0f] px-2 py-1 text-[#F5F0E8]"
                 />
               </label>
               <div className="flex gap-2">
@@ -353,7 +353,7 @@ export function QuickStats({
                   type="button"
                   disabled={savingDates}
                   onClick={() => void saveDates()}
-                  className="rounded bg-[#6c63ff] px-3 py-1 text-white"
+                  className="rounded bg-[#D4A853] px-3 py-1 text-white"
                 >
                   Save
                 </button>
@@ -364,7 +364,7 @@ export function QuickStats({
                     setDraftLock(episodeDates.picture_lock_date ?? "");
                     setDraftDelivery(episodeDates.delivery_date ?? "");
                   }}
-                  className="rounded border border-[#2a2a3e] px-3 py-1"
+                  className="rounded border border-[#2a2a2a] px-3 py-1"
                 >
                   Cancel
                 </button>
@@ -374,7 +374,7 @@ export function QuickStats({
         </div>
       </div>
 
-      <p className="mt-4 text-[11px] text-[#5f5e70]">
+      <p className="mt-4 text-[11px] text-[#5a5040]">
         ADR line counts arrive with the ADR module — markers flow in from
         session exports.
       </p>

@@ -59,19 +59,19 @@ export default async function ContextualVfxSheetPage({
 
   return (
     <div className="min-h-screen bg-fw-bg">
-      <div className="border-b border-fw-border bg-[#12121e]/80 px-4 py-3 text-sm text-[#9998b0] md:px-8">
-        <Link href="/dashboard" className="text-[#6c63ff] hover:underline">
+      <div className="border-b border-fw-border bg-[#0f0f0f]/80 px-4 py-3 text-sm text-[#A09880] md:px-8">
+        <Link href="/dashboard" className="text-[#D4A853] hover:underline">
           Dashboard
         </Link>
-        <span className="mx-2 text-[#5f5e70]">/</span>
+        <span className="mx-2 text-[#5a5040]">/</span>
         <Link
           href={`/${org.slug}/${params.showSlug}`}
-          className="text-[#6c63ff] hover:underline"
+          className="text-[#D4A853] hover:underline"
         >
           Show
         </Link>
-        <span className="mx-2 text-[#5f5e70]">/</span>
-        <span className="text-[#f1f0f0]">VFX Sheet Generator</span>
+        <span className="mx-2 text-[#5a5040]">/</span>
+        <span className="text-[#F5F0E8]">VFX Sheet Generator</span>
       </div>
       <VfxSheetGenerator
         saveContext={{

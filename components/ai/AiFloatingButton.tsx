@@ -42,7 +42,7 @@ export function AiFloatingButton() {
       type="button"
       title="Ask AI  ⌘K"
       onClick={() => toggle()}
-      className={`fixed bottom-6 right-6 z-[90] flex h-12 w-12 items-center justify-center rounded-full bg-[#6c63ff] text-white shadow-[0_4px_12px_rgba(108,99,255,0.4)] transition hover:scale-105 hover:shadow-[0_6px_16px_rgba(108,99,255,0.55)] active:scale-[0.97] ${
+      className={`fixed bottom-6 right-6 z-[90] flex h-12 w-12 items-center justify-center rounded-full bg-[#D4A853] text-white shadow-[0_4px_12px_rgba(212,168,83,0.4)] transition hover:scale-105 hover:shadow-[0_6px_16px_rgba(212,168,83,0.55)] active:scale-[0.97] ${
         pulse ? "animate-pulse" : ""
       }`}
       aria-label="Open AI assistant"

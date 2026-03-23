@@ -135,17 +135,17 @@ export default async function EpisodeHubPage({
         <div>
           <Link
             href={`/${org.slug}/${params.showSlug}/episodes`}
-            className="text-xs text-[#6c63ff] hover:underline"
+            className="text-xs text-[#D4A853] hover:underline"
           >
             All episodes
           </Link>
-          <h1 className="mt-3 font-mono text-3xl text-[#f1f0f0]">
+          <h1 className="mt-3 font-mono text-3xl text-[#F5F0E8]">
             {episode.episode_number}{" "}
-            <span className="text-[#9998b0]">— {episode.title}</span>
+            <span className="text-[#A09880]">— {episode.title}</span>
           </h1>
-          <p className="mt-2 text-sm text-[#9998b0]">
+          <p className="mt-2 text-sm text-[#A09880]">
             Status:{" "}
-            <span className="font-medium text-[#f1f0f0]">{episode.status}</span>
+            <span className="font-medium text-[#F5F0E8]">{episode.status}</span>
             {episode.picture_lock_date
               ? ` · Picture lock ${episode.picture_lock_date}`
               : ""}
@@ -156,7 +156,7 @@ export default async function EpisodeHubPage({
         </div>
         <Link
           href={`/${org.slug}/${params.showSlug}`}
-          className="text-sm text-[#6c63ff] hover:underline"
+          className="text-sm text-[#D4A853] hover:underline"
         >
           Show overview
         </Link>
