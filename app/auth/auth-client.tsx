@@ -6,6 +6,27 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
+function CheckIcon() {
+  return (
+    <svg
+      className="mx-auto h-14 w-14 text-emerald-400"
+      viewBox="0 0 48 48"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
+      <path
+        d="M14 24l7 7 13-14"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export function AuthPageClient() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -15,6 +36,8 @@ export function AuthPageClient() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [sent, setSent] = useState(false);
+  const [sentTo, setSentTo] = useState("");
   const supabase = createClient();
 
   useEffect(() => {
@@ -28,9 +51,18 @@ export function AuthPageClient() {
       const {
         data: { user },
       } = await supabase.auth.getUser();
-      if (!cancelled && user) {
-        router.replace("/dashboard");
-      }
+      if (cancelled || !user) return;
+
+      const { data: member } = await supabase
+        .from("members")
+        .select("org_id")
+        .eq("user_id", user.id)
+        .limit(1)
+        .maybeSingle();
+
+      if (cancelled) return;
+      if (member?.org_id) router.replace("/dashboard");
+      else router.replace("/onboarding");
     })();
     return () => {
       cancelled = true;
@@ -50,7 +82,8 @@ export function AuthPageClient() {
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
       options: {
-        emailRedirectTo: `${origin}/auth/callback?next=/dashboard`,
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        shouldCreateUser: true,
       },
     });
     setLoading(false);
@@ -58,7 +91,8 @@ export function AuthPageClient() {
       setMessage(error.message);
       return;
     }
-    setMessage("Check your email for the sign-in link.");
+    setSentTo(email.trim());
+    setSent(true);
   };
 
   const signInGoogle = async () => {
@@ -67,7 +101,7 @@ export function AuthPageClient() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: `${origin}/auth/callback?next=/dashboard`,
+        redirectTo: `${origin}/auth/callback`,
       },
     });
     setLoading(false);
@@ -75,7 +109,7 @@ export function AuthPageClient() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f0f1a] flex flex-col items-center justify-center px-4">
+    <div className="flex min-h-screen flex-col items-center justify-center bg-[#0f0f1a] px-4">
       <motion.div
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
@@ -92,50 +126,85 @@ export function AuthPageClient() {
           Post production, finally coordinated.
         </p>
 
-        {err && (
+        {err === "callback_failed" && (
+          <p className="mt-4 rounded-lg border border-red-500/35 bg-red-950/30 px-3 py-2 text-sm text-red-200">
+            Sign-in did not complete. Try requesting a new magic link.
+          </p>
+        )}
+        {err && err !== "callback_failed" && (
           <p className="mt-4 rounded-lg border border-red-500/35 bg-red-950/30 px-3 py-2 text-sm text-red-200">
             Sign-in did not complete. Try again.
           </p>
         )}
 
-        <label className="mt-8 block space-y-2 text-sm">
-          <span className="text-[#9998b0]">Work email</span>
-          <input
-            type="email"
-            autoComplete="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="you@production.com"
-            className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none transition focus:border-[#6c63ff] focus:ring-2 focus:ring-[#6c63ff]/30"
-          />
-        </label>
+        {sent ? (
+          <div className="mt-8 space-y-4 text-center">
+            <CheckIcon />
+            <h3 className="text-lg font-semibold text-[#f1f0f0]">
+              Check your email
+            </h3>
+            <p className="text-sm text-[#f1f0f0]">
+              We sent a magic link to{" "}
+              <span className="font-medium text-[#6c63ff]">{sentTo}</span>
+            </p>
+            <p className="text-sm text-[#5f5e70]">
+              Click the link in your email to sign in. Check spam if you don&apos;t
+              see it.
+            </p>
+            <button
+              type="button"
+              onClick={() => {
+                setSent(false);
+                setSentTo("");
+                setMessage(null);
+              }}
+              className="mt-2 w-full rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] py-3 text-sm font-medium text-[#f1f0f0] transition hover:border-[#6c63ff]/50 hover:bg-[#12121e]"
+            >
+              Use a different email
+            </button>
+          </div>
+        ) : (
+          <>
+            <label className="mt-8 block space-y-2 text-sm">
+              <span className="text-[#9998b0]">Work email</span>
+              <input
+                type="email"
+                autoComplete="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@production.com"
+                className="w-full rounded-lg border border-[#2a2a3e] bg-[#0a0a12] px-3 py-2.5 text-[#f1f0f0] outline-none transition focus:border-[#6c63ff] focus:ring-2 focus:ring-[#6c63ff]/30"
+              />
+            </label>
 
-        <button
-          type="button"
-          disabled={loading}
-          onClick={signInMagicLink}
-          className="mt-4 w-full rounded-lg bg-[#6c63ff] py-3 text-sm font-semibold text-white transition hover:bg-[#7b73ff] disabled:opacity-50"
-        >
-          Email me a magic link
-        </button>
+            <button
+              type="button"
+              disabled={loading}
+              onClick={signInMagicLink}
+              className="mt-4 w-full rounded-lg bg-[#6c63ff] py-3 text-sm font-semibold text-white transition hover:bg-[#7b73ff] disabled:opacity-50"
+            >
+              Email me a magic link
+            </button>
 
-        <div className="my-6 flex items-center gap-3">
-          <div className="h-px flex-1 bg-[#2a2a3e]" />
-          <span className="text-xs text-[#5f5e70]">or</span>
-          <div className="h-px flex-1 bg-[#2a2a3e]" />
-        </div>
+            <div className="my-6 flex items-center gap-3">
+              <div className="h-px flex-1 bg-[#2a2a3e]" />
+              <span className="text-xs text-[#5f5e70]">or</span>
+              <div className="h-px flex-1 bg-[#2a2a3e]" />
+            </div>
 
-        <button
-          type="button"
-          disabled={loading}
-          onClick={signInGoogle}
-          className="w-full rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] py-3 text-sm font-medium text-[#f1f0f0] transition hover:border-[#6c63ff]/50 hover:bg-[#12121e] disabled:opacity-50"
-        >
-          Continue with Google
-        </button>
+            <button
+              type="button"
+              disabled={loading}
+              onClick={signInGoogle}
+              className="w-full rounded-lg border border-[#2a2a3e] bg-[#1a1a2e] py-3 text-sm font-medium text-[#f1f0f0] transition hover:border-[#6c63ff]/50 hover:bg-[#12121e] disabled:opacity-50"
+            >
+              Continue with Google
+            </button>
 
-        {message && (
-          <p className="mt-4 text-center text-sm text-[#9998b0]">{message}</p>
+            {message && (
+              <p className="mt-4 text-center text-sm text-red-300">{message}</p>
+            )}
+          </>
         )}
 
         <p className="mt-8 text-center text-xs text-[#5f5e70]">
