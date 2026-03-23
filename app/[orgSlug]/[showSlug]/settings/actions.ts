@@ -100,6 +100,70 @@ export async function updateDistributionListsAction(
   if (error) return { ok: false as const, error: error.message };
 
   revalidatePath(`/${orgSlug}/${showSlug}/settings`);
+  revalidatePath(`/${orgSlug}/${showSlug}`);
+  return { ok: true as const };
+}
+
+export async function updateShowBasicsAction(
+  orgSlug: string,
+  showSlug: string,
+  payload: { name: string; frame_rate: string }
+) {
+  const ctx = await requireShowContext(orgSlug, showSlug);
+  if (!ctx.ok) return ctx;
+
+  const name = payload.name.trim();
+  if (!name) {
+    return { ok: false as const, error: "Show name is required" };
+  }
+  const frame_rate = payload.frame_rate.trim() || "23.976";
+
+  const { error } = await ctx.supabase
+    .from("shows")
+    .update({ name, frame_rate })
+    .eq("id", ctx.show.id);
+
+  if (error) return { ok: false as const, error: error.message };
+
+  revalidatePath(`/${orgSlug}/${showSlug}/settings`);
+  revalidatePath(`/${orgSlug}/${showSlug}`);
+  return { ok: true as const };
+}
+
+export async function updateEpisodeDatesAction(
+  orgSlug: string,
+  showSlug: string,
+  episodeId: string,
+  payload: { picture_lock_date: string | null; delivery_date: string | null }
+) {
+  const ctx = await requireShowContext(orgSlug, showSlug);
+  if (!ctx.ok) return ctx;
+
+  const { data: ep } = await ctx.supabase
+    .from("episodes")
+    .select("id")
+    .eq("id", episodeId)
+    .eq("show_id", ctx.show.id)
+    .maybeSingle();
+  if (!ep) {
+    return { ok: false as const, error: "Episode not found" };
+  }
+
+  const picture_lock_date = payload.picture_lock_date?.trim() || null;
+  const delivery_date = payload.delivery_date?.trim() || null;
+
+  const { error } = await ctx.supabase
+    .from("episodes")
+    .update({
+      picture_lock_date,
+      delivery_date,
+    })
+    .eq("id", episodeId);
+
+  if (error) return { ok: false as const, error: error.message };
+
+  revalidatePath(`/${orgSlug}/${showSlug}/settings`);
+  revalidatePath(`/${orgSlug}/${showSlug}`);
   return { ok: true as const };
 }
 

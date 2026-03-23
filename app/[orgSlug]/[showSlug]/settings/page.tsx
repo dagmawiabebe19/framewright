@@ -1,12 +1,15 @@
+import type { DistributionListsState } from "@/app/[orgSlug]/[showSlug]/settings/actions";
 import { DistributionLists } from "@/components/settings/DistributionLists";
-import { NotificationToggles } from "@/components/settings/NotificationToggles";
+import {
+  ShowInfoSection,
+  type EpisodeDateRow,
+} from "@/components/settings/ShowInfoSection";
 import {
   TeamMembers,
   type TeamMemberRow,
 } from "@/components/settings/TeamMembers";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
-import type { DistributionListsState } from "@/app/[orgSlug]/[showSlug]/settings/actions";
 import { notFound, redirect } from "next/navigation";
 
 export default async function SettingsPage({
@@ -29,7 +32,7 @@ export default async function SettingsPage({
 
   const { data: member } = await supabase
     .from("members")
-    .select("id, notification_prefs")
+    .select("id")
     .eq("org_id", org.id)
     .eq("user_id", user.id)
     .maybeSingle();
@@ -38,7 +41,7 @@ export default async function SettingsPage({
   const code = params.showSlug.toUpperCase();
   const { data: show } = await supabase
     .from("shows")
-    .select("id, name, distribution_lists")
+    .select("id, name, frame_rate, distribution_lists")
     .eq("org_id", org.id)
     .eq("show_code", code)
     .maybeSingle();
@@ -59,6 +62,20 @@ export default async function SettingsPage({
       ? (rawDist.deadlines as string[])
       : [],
   };
+
+  const { data: episodeRows } = await supabase
+    .from("episodes")
+    .select("id, episode_number, title, picture_lock_date, delivery_date")
+    .eq("show_id", show.id)
+    .order("created_at", { ascending: true });
+
+  const episodes: EpisodeDateRow[] = (episodeRows ?? []).map((e) => ({
+    id: e.id,
+    episode_number: e.episode_number,
+    title: e.title,
+    picture_lock_date: e.picture_lock_date,
+    delivery_date: e.delivery_date,
+  }));
 
   const { data: memberRows } = await supabase
     .from("members")
@@ -94,21 +111,26 @@ export default async function SettingsPage({
         </p>
         <h1 className="text-2xl font-semibold text-[#f1f0f0]">Settings</h1>
       </header>
+
       <DistributionLists
         orgSlug={params.orgSlug}
         showSlug={params.showSlug}
         initial={distInitial}
       />
-      <NotificationToggles
-        orgSlug={params.orgSlug}
-        showSlug={params.showSlug}
-        initial={member.notification_prefs}
-      />
+
       <TeamMembers
         orgSlug={params.orgSlug}
         showSlug={params.showSlug}
         members={team}
         currentUserId={user.id}
+      />
+
+      <ShowInfoSection
+        orgSlug={params.orgSlug}
+        showSlug={params.showSlug}
+        initialName={show.name}
+        initialFrameRate={show.frame_rate}
+        episodes={episodes}
       />
     </div>
   );
