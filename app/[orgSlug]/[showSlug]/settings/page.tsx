@@ -1,0 +1,115 @@
+import { DistributionLists } from "@/components/settings/DistributionLists";
+import { NotificationToggles } from "@/components/settings/NotificationToggles";
+import {
+  TeamMembers,
+  type TeamMemberRow,
+} from "@/components/settings/TeamMembers";
+import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient } from "@/lib/supabase/server";
+import type { DistributionListsState } from "@/app/[orgSlug]/[showSlug]/settings/actions";
+import { notFound, redirect } from "next/navigation";
+
+export default async function SettingsPage({
+  params,
+}: {
+  params: { orgSlug: string; showSlug: string };
+}) {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (!user) redirect("/auth");
+
+  const { data: org } = await supabase
+    .from("organizations")
+    .select("id")
+    .eq("slug", params.orgSlug)
+    .maybeSingle();
+  if (!org) notFound();
+
+  const { data: member } = await supabase
+    .from("members")
+    .select("id, notification_prefs")
+    .eq("org_id", org.id)
+    .eq("user_id", user.id)
+    .maybeSingle();
+  if (!member) notFound();
+
+  const code = params.showSlug.toUpperCase();
+  const { data: show } = await supabase
+    .from("shows")
+    .select("id, name, distribution_lists")
+    .eq("org_id", org.id)
+    .eq("show_code", code)
+    .maybeSingle();
+  if (!show) notFound();
+
+  const rawDist = show.distribution_lists as {
+    dailies?: unknown;
+    cuts?: unknown;
+    deadlines?: unknown;
+  } | null;
+
+  const distInitial: DistributionListsState = {
+    dailies: Array.isArray(rawDist?.dailies)
+      ? (rawDist.dailies as string[])
+      : [],
+    cuts: Array.isArray(rawDist?.cuts) ? (rawDist.cuts as string[]) : [],
+    deadlines: Array.isArray(rawDist?.deadlines)
+      ? (rawDist.deadlines as string[])
+      : [],
+  };
+
+  const { data: memberRows } = await supabase
+    .from("members")
+    .select("id, user_id, role, created_at")
+    .eq("org_id", org.id)
+    .order("created_at", { ascending: true });
+
+  const emails: Record<string, string> = {};
+  if (process.env.SUPABASE_SERVICE_ROLE_KEY) {
+    try {
+      const admin = createAdminClient();
+      for (const m of memberRows ?? []) {
+        const { data, error } = await admin.auth.admin.getUserById(m.user_id);
+        if (!error && data.user?.email) {
+          emails[m.user_id] = data.user.email;
+        }
+      }
+    } catch {
+      // Service role missing or invalid — list members without emails
+    }
+  }
+
+  const team: TeamMemberRow[] = (memberRows ?? []).map((m) => ({
+    ...m,
+    email: emails[m.user_id] ?? null,
+  }));
+
+  return (
+    <div className="mx-auto max-w-3xl space-y-8 px-4 py-8 md:px-8">
+      <header>
+        <p className="text-xs uppercase tracking-wider text-[#5f5e70]">
+          {show.name}
+        </p>
+        <h1 className="text-2xl font-semibold text-[#f1f0f0]">Settings</h1>
+      </header>
+      <DistributionLists
+        orgSlug={params.orgSlug}
+        showSlug={params.showSlug}
+        initial={distInitial}
+      />
+      <NotificationToggles
+        orgSlug={params.orgSlug}
+        showSlug={params.showSlug}
+        initial={member.notification_prefs}
+      />
+      <TeamMembers
+        orgSlug={params.orgSlug}
+        showSlug={params.showSlug}
+        members={team}
+        currentUserId={user.id}
+      />
+    </div>
+  );
+}

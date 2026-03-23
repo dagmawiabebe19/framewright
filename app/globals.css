@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --surface: #0f0f1a;
+  --card: #1a1a2e;
+  --accent: #6c63ff;
+}
+
+body {
+  @apply bg-fw-bg text-white antialiased;
+}
+
+@keyframes fw-feed-line {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(4px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fw-feed-line {
+  animation: fw-feed-line 3.6s ease-in-out infinite;
+}
