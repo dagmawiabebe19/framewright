@@ -3,7 +3,7 @@
 import { logCutVersion } from "@/app/actions/cuts";
 import type { CutType } from "@/lib/cut-types";
 import { CUT_TYPE_OPTIONS } from "@/lib/cut-types";
-import { parseFps, tcToTotalFrames, validateTcFormat } from "@/lib/tc";
+import { isStrictTimecodeFf, parseFps, tcToTotalFrames } from "@/lib/tc";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 
@@ -84,7 +84,7 @@ export function AddCutModal({
   }, [cutType, existingCuts, open]);
 
   const totalFrames =
-    durationTc.trim() && validateTcFormat(durationTc)
+    durationTc.trim() && isStrictTimecodeFf(durationTc)
       ? tcToTotalFrames(durationTc, fps)
       : null;
 
@@ -93,17 +93,23 @@ export function AddCutModal({
       setTcError(null);
       return;
     }
-    if (!validateTcFormat(durationTc)) {
-      setTcError("Use HH:MM:SS:FF");
+    if (!isStrictTimecodeFf(durationTc)) {
+      setTcError(
+        "Please enter a valid timecode (HH:MM:SS:FF), e.g. 01:42:18:00"
+      );
     } else {
       setTcError(null);
     }
   };
 
   const submit = async () => {
-    if (durationTc.trim() && !validateTcFormat(durationTc)) {
-      setTcError("Use HH:MM:SS:FF");
-      return;
+    if (durationTc.trim()) {
+      if (!isStrictTimecodeFf(durationTc)) {
+        setTcError(
+          "Please enter a valid timecode (HH:MM:SS:FF), e.g. 01:42:18:00"
+        );
+        return;
+      }
     }
     setSubmitting(true);
     let storagePath: string | null = null;

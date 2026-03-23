@@ -78,6 +78,12 @@ async function requireShowContext(orgSlug: string, showSlug: string) {
   };
 }
 
+/**
+ * Persists to `shows.distribution_lists` (jsonb). Column is added by
+ * `supabase/migrations/20250323000000_phase3.sql` or
+ * `20250326000000_ensure_shows_distribution_lists.sql` — run `supabase db push`
+ * if updates fail with an undefined-column error.
+ */
 export async function updateDistributionListsAction(
   orgSlug: string,
   showSlug: string,

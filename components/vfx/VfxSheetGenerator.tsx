@@ -20,6 +20,7 @@ import {
 import { parseSequenceFile } from "@/lib/parsers/index";
 import type { ShowMeta } from "@/lib/types";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export type VfxEpisodeOption = {
@@ -101,6 +102,7 @@ function triggerDownload(buffer: ArrayBuffer, name: string) {
 export default function VfxSheetGenerator({
   saveContext = null,
 }: VfxSheetGeneratorProps = {}) {
+  const router = useRouter();
   const [seqFile, setSeqFile] = useState<File | null>(null);
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [showName, setShowName] = useState("");
@@ -451,6 +453,7 @@ export default function VfxSheetGenerator({
               version: fin.version,
             });
             persistExtra = `\n\nSaved to FRAMEWRIGHT as v${fin.version}.`;
+            router.refresh();
           } catch (pe) {
             const msg = pe instanceof Error ? pe.message : String(pe);
             persistExtra = `\n\nSheet downloaded but cloud save failed: ${msg}.`;

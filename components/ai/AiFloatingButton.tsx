@@ -38,6 +38,7 @@ export function AiFloatingButton() {
 
   return (
     <button
+      data-tour="tour-ai-assistant"
       type="button"
       title="Ask AI  ⌘K"
       onClick={() => toggle()}

@@ -11,20 +11,32 @@ type ShowOption = {
   org_slug: string;
 };
 
-const navSections: {
+type NavItem = {
+  href: string;
   label: string;
-  items: { href: string; label: string }[];
-}[] = [
+  /** Spotlight target for onboarding tour */
+  tour?: string;
+};
+
+type NavSection = {
+  label: string;
+  /** Wrap section nav in tour spotlight */
+  sectionTour?: string;
+  items: NavItem[];
+};
+
+const navSections: NavSection[] = [
   {
     label: "Home",
     items: [{ href: "", label: "Overview" }],
   },
   {
     label: "Production",
-    items: [{ href: "/episodes", label: "Episodes" }],
+    items: [{ href: "/episodes", label: "Episodes", tour: "tour-nav-episodes" }],
   },
   {
     label: "Editorial",
+    sectionTour: "tour-nav-editorial",
     items: [
       { href: "/editorial/cuts", label: "Cut log" },
       { href: "/editorial/dailies", label: "Dailies tracker" },
@@ -34,7 +46,7 @@ const navSections: {
     label: "VFX",
     items: [
       { href: "/vfx/shots", label: "Shot tracker" },
-      { href: "/vfx/sheets", label: "VFX sheets" },
+      { href: "/vfx/sheets", label: "VFX sheets", tour: "tour-nav-vfx-sheets" },
     ],
   },
   {
@@ -96,7 +108,7 @@ export function ShowSidebar({
         >
           FRAMEWRIGHT
         </Link>
-        <div className="mt-4">
+        <div className="mt-4" data-tour="tour-show-select">
           <label className="text-[10px] uppercase tracking-wider text-[#5f5e70]">
             Show
           </label>
@@ -129,30 +141,49 @@ export function ShowSidebar({
             <p className="px-3 text-[10px] font-semibold uppercase tracking-wider text-[#5f5e70]">
               {section.label}
             </p>
-            <ul className="mt-2 space-y-0.5">
-              {section.items.map((item) => {
-                const href = `${base}${item.href}`;
-                const active = isActive(item.href);
-                return (
-                  <li key={item.label}>
-                    <Link
-                      href={href}
-                      onClick={() => setMobileOpen(false)}
-                      className={`block rounded-lg px-3 py-2 text-sm transition duration-150 ease-out ${
-                        active
-                          ? "border border-[#2a2a3e] bg-[#1a1a2e] text-[#f1f0f0]"
-                          : "text-[#9998b0] hover:bg-[#12121e] hover:text-[#f1f0f0]"
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
+            <div data-tour={section.sectionTour}>
+              <ul className="mt-2 space-y-0.5">
+                {section.items.map((item) => {
+                  const href = `${base}${item.href}`;
+                  const active = isActive(item.href);
+                  return (
+                    <li key={item.label}>
+                      <Link
+                        href={href}
+                        data-tour={item.tour}
+                        onClick={() => setMobileOpen(false)}
+                        className={`block rounded-lg px-3 py-2 text-sm transition duration-150 ease-out ${
+                          active
+                            ? "border border-[#2a2a3e] bg-[#1a1a2e] text-[#f1f0f0]"
+                            : "text-[#9998b0] hover:bg-[#12121e] hover:text-[#f1f0f0]"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
           </div>
         ))}
       </nav>
+
+      <div className="border-t border-[#2a2a3e] px-2 py-3">
+        <Link
+          href="/help"
+          onClick={() => setMobileOpen(false)}
+          className="flex items-center gap-2 rounded-lg px-3 py-2 text-sm text-[#9998b0] transition hover:bg-[#12121e] hover:text-[#f1f0f0]"
+        >
+          <span
+            className="flex h-7 w-7 items-center justify-center rounded-full border border-[#2a2a3e] text-xs text-[#6c63ff]"
+            aria-hidden
+          >
+            ?
+          </span>
+          Help &amp; tutorials
+        </Link>
+      </div>
     </>
   );
 

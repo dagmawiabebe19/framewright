@@ -1,3 +1,4 @@
+import { DashboardTourBanner } from "@/components/help/DashboardTourBanner";
 import { InviteClaim } from "@/components/dashboard/InviteClaim";
 import { SignOutButton } from "@/components/dashboard/SignOutButton";
 import { createClient } from "@/lib/supabase/server";
@@ -37,9 +38,20 @@ export default async function DashboardPage() {
 
   const orgById = new Map(orgs?.map((o) => [o.id, o]) ?? []);
 
+  const firstShowEntry =
+    shows?.find((s) => orgById.get(s.org_id)) ?? null;
+  const firstOrg = firstShowEntry
+    ? orgById.get(firstShowEntry.org_id)
+    : undefined;
+  const firstShowHref =
+    firstShowEntry && firstOrg
+      ? `/${firstOrg.slug}/${firstShowEntry.show_code.toLowerCase()}`
+      : null;
+
   return (
     <div className="min-h-screen bg-[#0a0a12] px-4 py-10">
       <InviteClaim />
+      <DashboardTourBanner firstShowHref={firstShowHref} />
       <div className="mx-auto max-w-4xl">
         <header className="flex flex-wrap items-start justify-between gap-4">
           <div>
@@ -55,6 +67,12 @@ export default async function DashboardPage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <Link
+              href="/help"
+              className="text-xs font-medium text-[#6c63ff] hover:underline"
+            >
+              Help
+            </Link>
             <span className="max-w-[200px] truncate text-xs text-[#5f5e70]">
               {user.email}
             </span>

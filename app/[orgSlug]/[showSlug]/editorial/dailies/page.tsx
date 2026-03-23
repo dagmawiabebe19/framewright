@@ -52,7 +52,7 @@ export default async function DailiesPage({
   const episodeId =
     searchParams.episode && epList.some((e) => e.id === searchParams.episode)
       ? searchParams.episode
-      : epList[0]?.id;
+      : epList[epList.length - 1]?.id;
 
   if (!episodeId) {
     return (
@@ -86,6 +86,11 @@ export default async function DailiesPage({
       showSlug={params.showSlug}
       showId={show.id}
       episodeId={episodeId}
+      episodeOptions={epList.map((e) => ({
+        id: e.id,
+        episode_number: e.episode_number,
+        title: e.title,
+      }))}
       episodeLabel={`${show.name} · Ep ${ep?.episode_number ?? ""}`}
       showName={show.name}
       episodeNumber={ep?.episode_number ?? ""}

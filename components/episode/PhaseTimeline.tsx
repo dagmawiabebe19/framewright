@@ -153,7 +153,10 @@ export function PhaseTimeline({
             Approved {vfxApproved} / {vfxTotal || "0"} shots
           </p>
           {vfxTotal === 0 && (
-            <p className="text-[#5f5e70]">No VFX shots — phase skipped.</p>
+            <p className="text-[#5f5e70]">
+              No VFX shots yet — generate a VFX sheet or add shots to track
+              finals here.
+            </p>
           )}
         </div>
       );

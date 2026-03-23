@@ -43,7 +43,7 @@ export function derivePhaseCompletion(input: PhaseDeriveInput): Record<PhaseKey,
   );
 
   const vfxFinals =
-    vfxTotal === 0 ? true : vfxApproved === vfxTotal && vfxTotal > 0;
+    vfxTotal > 0 && vfxApproved === vfxTotal;
 
   return {
     shooting: episodeStatus !== "prep",

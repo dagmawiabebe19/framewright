@@ -129,10 +129,12 @@ export function ShowInfoSection({
     <section className="rounded-2xl border border-[#2a2a3e] bg-[#12121e] p-6">
       <h2 className="text-lg font-semibold text-[#f1f0f0]">Show info</h2>
       <p className="mt-1 text-sm text-[#5f5e70]">
-        Show identity, frame rate, and milestone dates by episode.
+        Show identity, frame rate, and milestone dates by episode. Save each
+        section when you are done editing.
       </p>
 
       <div className="mt-6 space-y-4 border-b border-[#2a2a3e] pb-8">
+        <h3 className="text-sm font-medium text-[#f1f0f0]">Show details</h3>
         <label className="block space-y-1">
           <span className="text-xs text-[#9998b0]">Show name</span>
           <input
@@ -192,8 +194,11 @@ export function ShowInfoSection({
 
       <div className="mt-8">
         <h3 className="text-sm font-medium text-[#f1f0f0]">
-          Picture lock &amp; delivery by episode
+          Episode milestone dates
         </h3>
+        <p className="mt-1 text-xs text-[#5f5e70]">
+          Picture lock and delivery targets per episode.
+        </p>
         <p className="mt-1 text-xs text-[#5f5e70]">
           Dates apply to each episode independently.
         </p>

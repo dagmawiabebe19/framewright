@@ -159,7 +159,9 @@ export async function finalizeVfxSheetDeliverable(input: {
 
   revalidatePath(`/${input.orgSlug}/${input.showSlug}`);
   revalidatePath(`/${input.orgSlug}/${input.showSlug}/episodes/${input.episodeId}`);
+  revalidatePath(`/${input.orgSlug}/${input.showSlug}/episodes`);
   revalidatePath(`/${input.orgSlug}/${input.showSlug}/vfx/shots`);
+  revalidatePath(`/${input.orgSlug}/${input.showSlug}/tools/vfx-sheet`);
 
   return {
     ok: true as const,

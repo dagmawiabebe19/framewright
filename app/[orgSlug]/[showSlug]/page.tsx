@@ -1,3 +1,4 @@
+import { OnboardingTour } from "@/components/help/OnboardingTour";
 import { ShowOverviewHeader } from "@/components/layout/ShowOverviewHeader";
 import { ShowOverviewBody } from "@/components/overview/ShowOverviewBody";
 import { createClient } from "@/lib/supabase/server";
@@ -99,6 +100,8 @@ export default async function ShowOverviewPage({
         initialDeliverables={deliverables ?? []}
         initialFeed={feedRows}
       />
+
+      <OnboardingTour orgSlug={org.slug} showSlug={params.showSlug} />
     </>
   );
 }

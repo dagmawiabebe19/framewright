@@ -29,3 +29,12 @@ export function tcToTotalFrames(tc: string, fps: number): number | null {
 export function validateTcFormat(tc: string): boolean {
   return parseTc(tc) !== null;
 }
+
+/** Strict HH:MM:SS:FF — two digits per field (UI / export validation). */
+const STRICT_FF_RE = /^\d{2}:\d{2}:\d{2}:\d{2}$/;
+
+export function isStrictTimecodeFf(tc: string): boolean {
+  const t = tc.trim();
+  if (!STRICT_FF_RE.test(t)) return false;
+  return parseTc(t) !== null;
+}

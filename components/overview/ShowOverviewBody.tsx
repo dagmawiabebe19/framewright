@@ -241,7 +241,10 @@ export function ShowOverviewBody({
               Manage episodes
             </Link>
           </div>
-          <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
+          <div
+            className="mt-4 flex gap-3 overflow-x-auto pb-2"
+            data-tour="tour-episode-strip"
+          >
             {episodes.map((ep) => {
               const st = EP_STATUS_STYLES[ep.status] ?? EP_STATUS_STYLES.prep;
               const map = byEpType.get(ep.id);
@@ -321,7 +324,7 @@ export function ShowOverviewBody({
           </div>
         </section>
 
-        <section className="overflow-x-auto">
+        <section className="overflow-x-auto" data-tour="tour-deliverables-matrix">
           <h2 className="text-sm font-semibold uppercase tracking-wider text-[#5f5e70]">
             Deliverables matrix
           </h2>

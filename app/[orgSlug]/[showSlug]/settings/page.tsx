@@ -112,6 +112,14 @@ export default async function SettingsPage({
         <h1 className="text-2xl font-semibold text-[#f1f0f0]">Settings</h1>
       </header>
 
+      <ShowInfoSection
+        orgSlug={params.orgSlug}
+        showSlug={params.showSlug}
+        initialName={show.name}
+        initialFrameRate={show.frame_rate}
+        episodes={episodes}
+      />
+
       <DistributionLists
         orgSlug={params.orgSlug}
         showSlug={params.showSlug}
@@ -123,14 +131,6 @@ export default async function SettingsPage({
         showSlug={params.showSlug}
         members={team}
         currentUserId={user.id}
-      />
-
-      <ShowInfoSection
-        orgSlug={params.orgSlug}
-        showSlug={params.showSlug}
-        initialName={show.name}
-        initialFrameRate={show.frame_rate}
-        episodes={episodes}
       />
     </div>
   );
