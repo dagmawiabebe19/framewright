@@ -151,17 +151,28 @@ export function AuthPageClient() {
               Click the link in your email to sign in. Check spam if you don&apos;t
               see it.
             </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSent(false);
-                setSentTo("");
-                setMessage(null);
-              }}
-              className="mt-2 w-full rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] py-3 text-sm font-medium text-[#F5F0E8] transition hover:border-[#D4A853]/50 hover:bg-[#0f0f0f]"
-            >
-              Use a different email
-            </button>
+            <div className="grid gap-2 sm:grid-cols-2">
+              <button
+                type="button"
+                onClick={() => {
+                  void signInMagicLink();
+                }}
+                className="w-full rounded-lg bg-[#D4A853] py-3 text-sm font-semibold text-[#080808] transition hover:bg-[#E0B86A]"
+              >
+                Resend login link
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setSent(false);
+                  setSentTo("");
+                  setMessage(null);
+                }}
+                className="w-full rounded-lg border border-[#2a2a2a] bg-[#1a1a1a] py-3 text-sm font-medium text-[#F5F0E8] transition hover:border-[#D4A853]/50 hover:bg-[#0f0f0f]"
+              >
+                Use a different email
+              </button>
+            </div>
           </div>
         ) : (
           <>
@@ -181,9 +192,9 @@ export function AuthPageClient() {
               type="button"
               disabled={loading}
               onClick={signInMagicLink}
-              className="mt-4 w-full rounded-lg bg-[#D4A853] py-3 text-sm font-semibold text-white transition hover:bg-[#E0B86A] disabled:opacity-50"
+              className="mt-4 w-full rounded-lg bg-[#D4A853] py-3 text-sm font-semibold text-[#080808] transition hover:bg-[#E0B86A] disabled:opacity-50"
             >
-              Email me a magic link
+              Log in with magic link
             </button>
 
             <div className="my-6 flex items-center gap-3">
